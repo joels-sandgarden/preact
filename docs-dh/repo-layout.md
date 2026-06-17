@@ -2,7 +2,7 @@
 
 ## Root package entry points
 
-The root `package.json` defines the package name, top-level entry fields, and export map.
+The root `package.json` defines the package name, entry fields, and export map.
 
 - `main` points CommonJS consumers to `dist/preact.js`.
 - `module` points ESM consumers to `dist/preact.mjs`.
@@ -19,7 +19,7 @@ The root `package.json` defines the package name, top-level entry fields, and ex
 - `devtools/` holds DevTools integration code and browser tests.
 - `hooks/` holds hook APIs and browser tests.
 - `jsx-runtime/` holds JSX runtime entry points and browser tests.
-- `test-utils/` holds shared test helpers and shared tests.
+- `test-utils/` holds shared test helpers and tests.
 - `demo/` holds example applications and demo assets.
 - `test/` holds the main test suite, shared tests, node tests, and TypeScript tests.
 
@@ -42,13 +42,21 @@ The root `package.json` defines the package name, top-level entry fields, and ex
 
 ## Scripts
 
+### Build
+
 - `build` runs all build jobs in parallel.
 - `build:core` bundles the root package.
 - `build:compat`, `build:debug`, `build:devtools`, `build:hooks`, `build:test-utils`, and `build:jsx` bundle the related packages.
 - `dev`, `dev:hooks`, and `dev:compat` run watch builds for the root package and selected packages.
+
+### Test
+
 - `test` runs build, lint, and unit tests.
 - `test:unit` runs `test:vitest:min` and `test:ts`.
 - `test:vitest`, `test:vitest:min`, and `test:vitest:watch` cover the Vitest workflows.
 - `test:ts`, `test:ts:core`, and `test:ts:compat` run type checks for the core and compat packages.
+
+### Lint and formatting
+
 - `lint` runs `oxlint` and `tsc`.
 - `format` and `format:check` run Biome formatting.
