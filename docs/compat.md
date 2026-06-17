@@ -62,7 +62,7 @@ The compatibility layer also exposes React 18 style helpers:
 
 - `version` exposes the React version string that many packages read during feature checks.
 - The default export object mirrors the named exports so React style imports continue to work.
-- `isElement` aliases `isValidElement` for packages that expect the older React Is helper name.
+- `isElement` aliases `isValidElement` for packages that expect the older helper name.
 
 ## Alias entry points
 
@@ -71,7 +71,7 @@ The compatibility layer also exposes React 18 style helpers:
 - `preact/compat/test-utils` passes through to the top level test utils module.
 - `preact/compat/server.browser` exposes the browser targeted server rendering variant with `renderToString` and `renderToStaticMarkup`.
 
-## React style interoperability
+## React style interoperability example
 
 ```jsx
 import React, { useState } from 'preact/compat';
@@ -84,5 +84,3 @@ function Counter() {
 
 export default Counter;
 ```
-
-Common React packages can import the facade without changing the surrounding application code.
