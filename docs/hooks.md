@@ -7,7 +7,7 @@ This document describes the hook API exported by `preact/hooks` and the behavior
 ## Prerequisites
 
 - Basic familiarity with Preact components and JSX.
-- An import from `preact/hooks` that exposes the hook functions listed in this guide.
+- An import from `preact/hooks` that exposes these hooks.
 
 ## Exported helper types
 
@@ -63,8 +63,8 @@ dispatch({ type: 'increment' });
 `useRef` returns a mutable object with a `current` property.
 
 - The object stays the same for the full lifetime of the component.
-- Store mutable values there when a change should not trigger a rerender.
-- Use it for DOM references and for instance-like values that must survive rerenders.
+- Store mutable values there when a change should not trigger another render.
+- Use it for DOM references and for instance-like values that must survive renders.
 
 ```js
 import { useRef } from 'preact/hooks';
@@ -77,7 +77,7 @@ const inputRef = useRef(null);
 `useContext` returns the value from the nearest matching provider.
 
 - The hook falls back to the context default value when no provider exists.
-- The component rerenders when the provider updates.
+- The component renders again when the provider updates.
 
 ```js
 import { createContext } from 'preact';
@@ -130,7 +130,7 @@ useEffect(() => {
 
 `useCallback` returns the same function reference until one of the dependencies changes by identity.
 
-- Use it to preserve function identity across rerenders.
+- Use it to preserve function identity across renders.
 - Pass the full dependency list so the callback always sees the values it reads.
 
 ### `useMemo`
@@ -169,7 +169,7 @@ useEffect(() => {
 
 ## Example
 
-The following example combines state, an effect, and context:
+This example uses state, an effect, and context:
 
 ```js
 import { createContext } from 'preact';
