@@ -24,6 +24,6 @@ const stack = captureOwnerStack();
 console.log(stack);
 ```
 
-## Resetting repeated warnings
+## When to reset warnings
 
-Use `resetPropWarnings()` after a diagnostic pass or test run that needs the same prop warning to appear again. The helper clears the stored warning state before the next render or diagnostic pass.
+Call `resetPropWarnings()` before another diagnostic pass when the same prop warning needs to appear again. The helper clears the stored warning state so the next render can log it again.
