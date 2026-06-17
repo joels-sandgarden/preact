@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes the `preact/compat/server` entry point for server rendering. The module exports string rendering helpers and streaming helpers from `preact-render-to-string`. The browser fallback at `preact/compat/server.browser` keeps only the string rendering helpers.
+This document describes the `preact/compat/server` entry point for server rendering. The module delegates string rendering to `preact-render-to-string` and streaming output to its stream helpers. The browser fallback at `preact/compat/server.browser` exposes only the string rendering helpers.
 
 ## Prerequisites
 
@@ -21,11 +21,11 @@ Use `renderToString` to convert a Preact tree into an HTML string.
 
 ### `renderToPipeableStream`
 
-Use `renderToPipeableStream` in Node environments that consume a pipeable stream. The compat entry point loads this helper from `preact-render-to-string/stream-node`.
+Use `renderToPipeableStream` for Node output that writes to a pipeable stream. The compat entry point loads this helper from `preact-render-to-string/stream-node`.
 
 ### `renderToReadableStream`
 
-Use `renderToReadableStream` in environments that consume a `ReadableStream`. The compat entry point loads this helper from `preact-render-to-string/stream`.
+Use `renderToReadableStream` for environments that consume a `ReadableStream`. The compat entry point loads this helper from `preact-render-to-string/stream`.
 
 ## Browser fallback
 
@@ -54,5 +54,5 @@ stream.pipe(process.stdout);
 
 ## Troubleshooting
 
-- A missing dependency error for `renderToString()` means `preact-render-to-string` is not installed in the runtime.
-- A version update error for `renderToPipeableStream()` or `renderToReadableStream()` means `preact-render-to-string` is older than `6.5.0`.
+- `renderToString()` reports a missing dependency when `preact-render-to-string` is not installed in the runtime.
+- `renderToPipeableStream()` and `renderToReadableStream()` report a version update error when `preact-render-to-string` is older than `6.5.0`.
