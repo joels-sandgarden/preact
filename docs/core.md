@@ -103,7 +103,7 @@ Extend `Component` for stateful views that need lifecycle methods or explicit up
 - `Attributes`: Supplies `key` and the optional `jsx` marker.
 - `ClassAttributes<T>`: Adds `ref` support to `Attributes`.
 - `RenderableProps<P, RefType>`: Combines component props with `children` and `ref`.
-- `ComponentType<P>`: Matches either a `ComponentClass<P>` or a `FunctionComponent<P>`.
+- `ComponentType<P>`: Matches a `ComponentClass<P>` or a `FunctionComponent<P>`.
 - `ComponentProps<C>`: Resolves the props type for a component type or a JSX intrinsic element name.
 - `FunctionComponent<P>`: Describes a function component that returns `ComponentChildren`.
 - `ComponentClass<P, S>`: Describes a class component constructor and its static helpers.
