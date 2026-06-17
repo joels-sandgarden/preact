@@ -2,12 +2,12 @@
 
 ## Overview
 
-This document describes the hook API exported by `preact/hooks` and the way it coordinates state, effects, refs, context, diagnostics, error handling, and stable IDs during rendering.
+This document describes the hook API exported by `preact/hooks` and the behavior of state, effects, refs, context, diagnostics, error handling, and stable IDs.
 
 ## Prerequisites
 
 - Basic familiarity with Preact components and JSX.
-- An import from `preact/hooks` for the hook functions listed in this guide.
+- An import from `preact/hooks` that exposes the hook functions listed in this guide.
 
 ## Exported helper types
 
@@ -101,10 +101,10 @@ const theme = useContext(ThemeContext);
 
 `useEffect` runs after the browser paints.
 
+Dependency arrays compare each entry by identity with `Object.is`.
+
 - Use it for work that can wait until the screen updates.
 - Return a cleanup function when the effect needs to release resources or cancel work.
-- The hook compares each dependency array entry by identity with `Object.is`.
-
 ```js
 import { useEffect } from 'preact/hooks';
 
@@ -122,7 +122,6 @@ useEffect(() => {
 `useLayoutEffect` runs synchronously after DOM mutation and before the browser paints.
 
 - Use it when code must read layout or adjust the DOM before the user sees the frame.
-- The hook compares each dependency array entry by identity with `Object.is`.
 - `useImperativeHandle` uses layout timing so ref updates land before paint.
 
 ## Memoization and callback helpers
@@ -204,5 +203,3 @@ function App() {
   );
 }
 ```
-
-The same pattern works with `useErrorBoundary` when a component needs to recover from a rendering error and reset its own error state.
