@@ -87,10 +87,10 @@ Extend `Component` for stateful views that need lifecycle methods or explicit up
 
 ### Core virtual node types
 
-- `VNode<P>`: Describes a virtual node with a `type`, `props`, `key`, and optional `ref`.
-- `Key`: Represents the identity for a child. It accepts string, number, and any other key value that Preact can compare.
-- `ComponentChild`: Represents a single child value. It includes virtual nodes, plain objects, strings, numbers, bigints, booleans, `null`, and `undefined`.
-- `ComponentChildren`: Represents either one child or an array of children.
+- `VNode<P>`: Describes a virtual node with `type`, `props`, `key`, and optional `ref`.
+- `Key`: Represents child identity. It accepts string, number, or any comparable value that Preact can use.
+- `ComponentChild`: Represents one child value. It includes virtual nodes, plain objects, strings, numbers, bigints, booleans, `null`, and `undefined`.
+- `ComponentChildren`: Represents one child or an array of children.
 
 ### Ref types
 
