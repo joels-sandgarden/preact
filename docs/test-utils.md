@@ -6,7 +6,7 @@ This document covers `preact/test-utils`, which provides helpers for render and 
 
 ## `setupRerender()`
 
-Call `setupRerender()` when a test needs direct control over queued renders. It replaces `options.debounceRendering` with a drain function for pending render work and returns a function that drains queued renders on demand.
+Call `setupRerender()` when a test needs direct control over queued renders. It replaces `options.debounceRendering` with a drain function and returns a callback that drains queued renders on demand.
 
 ## `act(callback)`
 
@@ -14,7 +14,7 @@ Use `act(callback)` to run a synchronous or asynchronous test callback and flush
 
 ## `teardown()`
 
-Call `teardown()` after each test. It restores `options.debounceRendering` and clears pending test state left behind by earlier renders.
+Call `teardown()` after each test. It restores `options.debounceRendering` and clears pending test state.
 
 ## Example
 
@@ -51,5 +51,6 @@ it('flushes renders during a test sequence', async () => {
 
 	expect(container.textContent).toBe('1');
 	teardown();
+	container.innerHTML = '';
 });
 ```
