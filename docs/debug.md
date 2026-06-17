@@ -2,7 +2,7 @@
 
 ## Overview
 
-The `preact/debug` entry point initializes debug instrumentation and loads `preact/devtools` when a project imports it. It exposes development only helpers for component stack tracing, display name lookup, and repeated prop warning resets.
+The `preact/debug` entry point initializes debug instrumentation and loads `preact/devtools` when a project imports it. It exposes development-only helpers for component stack tracing, display name lookup, and repeated prop warning resets.
 
 ## Helpers
 
@@ -26,8 +26,4 @@ console.log(stack);
 
 ## Resetting repeated warnings
 
-Use `resetPropWarnings()` after a diagnostic pass or test run that needs the same prop warning to appear again. The helper clears the stored warning state before the next render or check runs.
-
-## Reference
-
-These helpers support development and diagnostics, especially component stack tracing.
+Use `resetPropWarnings()` after a diagnostic pass or test run that needs the same prop warning to appear again. The helper clears the stored warning state before the next render or diagnostic pass.
