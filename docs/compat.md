@@ -2,7 +2,7 @@
 
 ## Overview
 
-`preact/compat` provides a React shaped facade over Preact for third party packages that expect React APIs. It keeps Preact as the renderer while exposing the runtime surface that common ecosystem tools look for.
+`preact/compat` provides a React compatible facade over Preact for third party packages that expect React APIs. It keeps Preact as the renderer and exposes the runtime surface that common ecosystem tools look for.
 
 ## Runtime components
 
@@ -48,7 +48,7 @@
 - `useRef`
 - `useState`
 
-The compatibility layer also includes React 18 style helpers:
+The compatibility layer also exposes React 18 style helpers:
 
 - `useInsertionEffect` runs after a render but before layout work.
 - `startTransition(callback)` marks an update as non urgent.
@@ -85,4 +85,4 @@ function Counter() {
 export default Counter;
 ```
 
-This import shape lets packages built for React consume Preact without changing the surrounding application code.
+Common React packages can import the facade without changing the surrounding application code.
