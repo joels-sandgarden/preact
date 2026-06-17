@@ -1,8 +1,8 @@
 # Scheduler compatibility reference
 
-This document describes `preact/compat/scheduler`, the compatibility layer for libraries that expect React scheduler APIs.
+This document describes `preact/compat/scheduler`, the compatibility reference for libraries that expect React scheduler APIs.
 
-It keeps the same API surface, but it does not provide cooperative scheduling. `unstable_runWithPriority` calls its callback synchronously, and `unstable_now` returns the current timestamp from `performance.now()`.
+It does not provide cooperative scheduling. `unstable_runWithPriority` calls its callback synchronously, and `unstable_now` returns the current timestamp from `performance.now()`.
 
 ## Priority constants
 
@@ -31,4 +31,4 @@ unstable_runWithPriority(unstable_NormalPriority, () => {
 });
 ```
 
-This pattern lets a library keep the same import shape.
+This pattern lets a library use the same import shape.
