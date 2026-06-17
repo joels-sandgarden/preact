@@ -11,7 +11,7 @@ Call `createRoot(container)` to create a root for an existing container element.
 - `render(children)` to mount or update the tree in that container.
 - `unmount()` to remove the tree from that container.
 
-Call `render(children)` whenever the tree changes. Each call replaces the previous content with the latest `children`.
+Call `render(children)` whenever the tree changes. Each call replaces the previous tree with the latest `children`.
 
 ## `hydrateRoot(container, children)`
 
@@ -31,5 +31,3 @@ root.render(<App name="Ada" />);
 root.render(<App name="Grace" />);
 root.unmount();
 ```
-
-Use `hydrateRoot()` for a container that already holds markup. Use `createRoot()` for a fresh mount.
