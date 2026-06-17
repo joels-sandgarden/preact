@@ -2,13 +2,13 @@
 
 ## Overview
 
-Preact is a small React-compatible virtual DOM library. This guide points contributors to the parts of the repository that matter most when reading the codebase.
+Preact is a small React-compatible virtual DOM library. This guide points contributors to the main repository areas.
 
 ## Start here
 
-- Read [`repo-layout.md`](./repo-layout.md) for the repository layout, package entry points, and script overview.
-- Review [`../README.md`](../README.md) for the project overview and high-level usage notes.
-- Check [`../package.json`](../package.json) for the package export map and workspace scripts.
+- Read [`repo-layout.md`](./repo-layout.md) for the repository layout, package entry points, and scripts.
+- Review [`../README.md`](../README.md) for the project overview and getting started notes.
+- Check [`../package.json`](../package.json) for the package export map and build scripts.
 
 ## Major areas
 
@@ -25,6 +25,6 @@ Preact is a small React-compatible virtual DOM library. This guide points contri
 ## Contributor path
 
 1. Start with `src/index.js` and the files it imports.
-2. Move to the package entry points in `package.json` to see how consumers reach each package.
-3. Read the relevant tests in `test/`, `compat/test/`, `hooks/test/`, `debug/test/`, `devtools/test/`, `jsx-runtime/test/`, and `test-utils/test/`.
+2. Use `package.json` to see how consumers reach each package.
+3. Read the relevant tests under `test/`, `compat/test/`, `hooks/test/`, `debug/test/`, `devtools/test/`, `jsx-runtime/test/`, and `test-utils/test/`.
 4. Use `demo/` to see small examples and feature-specific usage.
