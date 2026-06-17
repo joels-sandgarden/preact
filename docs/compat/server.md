@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes the `preact/compat/server` entry point for server rendering. The module delegates string rendering to `preact-render-to-string` and streaming output to its stream helpers. The browser fallback at `preact/compat/server.browser` exposes only the string rendering helpers.
+This document describes the `preact/compat/server` entry point for server rendering. The module delegates string rendering to `preact-render-to-string` and streaming output to `preact-render-to-string/stream-node` and `preact-render-to-string/stream`. The browser fallback module, `preact/compat/server.browser`, exposes only the string rendering helpers.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ Use `renderToReadableStream` for environments that consume a `ReadableStream`. T
 
 ## Browser fallback
 
-`preact/compat/server.browser` exports `renderToString` and `renderToStaticMarkup` only. It does not expose the streaming helpers.
+`preact/compat/server.browser` exports `renderToString` and `renderToStaticMarkup` only. It omits the streaming helpers.
 
 ## Examples
 
