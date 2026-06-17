@@ -85,6 +85,8 @@ export function App() {
 }
 ```
 
+The compiler adds the runtime imports automatically, so the source file stays focused on JSX.
+
 ### Precompiled template usage
 
 ```js
