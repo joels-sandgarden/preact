@@ -1,8 +1,8 @@
-# Scheduler compatibility shim
+# Scheduler compatibility reference
 
-`preact/compat/scheduler` exports the scheduler API surface that some libraries expect from React.
+This document describes `preact/compat/scheduler`, the compatibility layer for libraries that expect React scheduler APIs.
 
-This module acts as a compatibility shim. It does not provide cooperative scheduling. `unstable_runWithPriority` calls its callback synchronously, and `unstable_now` returns the current high resolution time.
+It keeps the same API surface, but it does not provide cooperative scheduling. `unstable_runWithPriority` calls its callback synchronously, and `unstable_now` returns the current timestamp from `performance.now()`.
 
 ## Priority constants
 
@@ -16,7 +16,7 @@ This module acts as a compatibility shim. It does not provide cooperative schedu
 
 `unstable_runWithPriority(priority, callback)` accepts a numeric priority and a callback. The priority value keeps compatibility with libraries that read the React scheduler API, and the callback runs immediately.
 
-`unstable_now` returns a monotonic timestamp from `performance.now()`.
+`unstable_now` returns a timestamp from `performance.now()`.
 
 ## Example
 
@@ -31,4 +31,4 @@ unstable_runWithPriority(unstable_NormalPriority, () => {
 });
 ```
 
-This pattern lets a library keep the same import shape while using the compat shim.
+This pattern lets a library keep the same import shape.
