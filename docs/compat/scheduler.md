@@ -2,7 +2,7 @@
 
 This document describes `preact/compat/scheduler`, the compatibility reference for libraries that expect React scheduler APIs.
 
-It does not provide cooperative scheduling. `unstable_runWithPriority` calls its callback synchronously, and `unstable_now` returns the current timestamp from `performance.now()`.
+It is a compatibility shim, not a full scheduler implementation. It does not provide cooperative scheduling. `unstable_runWithPriority` calls its callback synchronously, and `unstable_now` returns the current timestamp from `performance.now()`.
 
 ## Priority constants
 
