@@ -106,7 +106,7 @@ Extend `Component` for stateful views that need lifecycle methods or explicit up
 - `ComponentType<P>`: Matches a `ComponentClass<P>` or a `FunctionComponent<P>`.
 - `ComponentProps<C>`: Resolves the props type for a component type or a JSX intrinsic element name.
 - `FunctionComponent<P>`: Describes a function component that returns `ComponentChildren`.
-- `ComponentClass<P, S>`: Describes a class component constructor and its static helpers.
+- `ComponentClass<P, S>`: Describes a class component constructor and its static lifecycle helpers.
 - `ComponentConstructor<P, S>`: Alias for a component class constructor.
 - `AnyComponent<P, S>`: Accepts either a function component or a class component constructor.
 
