@@ -79,9 +79,9 @@ Use `toChildArray()` to flatten children into a predictable array that only cont
 
 ### `Component`
 
-Extend `Component` when a class needs local state, lifecycle methods, or explicit update control. Instances receive `props`, `state`, and `context`, and they can call `setState()` or `forceUpdate()` to schedule a new render.
+Extend `Component` for stateful views that need lifecycle methods or explicit update control. The base class exposes `props`, `state`, `context`, `setState()`, and `forceUpdate()`.
 
-`componentDidCatch(error, errorInfo)` receives an `ErrorInfo` object with an optional `componentStack` string. `contextType` connects a class to a single context value.
+`componentDidCatch(error, errorInfo)` receives an `ErrorInfo` object with an optional `componentStack` string. `contextType` connects a class to one context value.
 
 ## Type reference
 
