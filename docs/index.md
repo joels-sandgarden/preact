@@ -2,7 +2,7 @@
 
 ## Overview
 
-Preact is a small, React-compatible virtual DOM library with a compact core and a set of public entry points for hooks, compatibility helpers, JSX runtime support, debug tooling, devtools integration, and test utilities. This page maps those entry points to their reference pages and serves as a quick orientation guide.
+Preact is a small, React-compatible virtual DOM library with a compact core and public entry points for hooks, compatibility helpers, JSX runtime support, debug tooling, devtools integration, and test utilities. This page points to the package reference pages for each entry point.
 
 ## Package reference map
 
@@ -17,6 +17,8 @@ Preact is a small, React-compatible virtual DOM library with a compact core and 
 | [`jsx-runtime.md`](./jsx-runtime.md) | The `preact/jsx-runtime` and `preact/jsx-dev-runtime` entry points. |
 | [`debug.md`](./debug.md) | The `preact/debug` package. |
 | [`devtools.md`](./devtools.md) | The `preact/devtools` package. |
-| [`test-utils.md`](./test-utils.md) | The `preact/test-utils` package and the `preact/compat/test-utils` alias. |
+| [`test-utils.md`](./test-utils.md) | The `preact/test-utils` package. |
+
+`preact/compat/test-utils` is an alias of `preact/test-utils`.
 
 Use the individual package pages for detailed reference material.
