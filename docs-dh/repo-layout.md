@@ -8,7 +8,7 @@ The root `package.json` defines the package name, entry fields, and export map.
 - `module` points ESM consumers to `dist/preact.mjs`.
 - `umd:main` points UMD consumers to `dist/preact.umd.js`.
 - `source` points build tools to `src/index.js`.
-- The root export map exposes `preact`, `preact/compat`, `preact/debug`, `preact/devtools`, `preact/hooks`, `preact/test-utils`, `preact/compat/test-utils`, `preact/jsx-runtime`, `preact/jsx-dev-runtime`, `preact/compat/client`, `preact/compat/server`, `preact/compat/server.browser`, `preact/compat/jsx-runtime`, `preact/compat/jsx-dev-runtime`, and `preact/compat/scheduler`.
+- The root export map includes `preact`, `preact/compat`, `preact/debug`, `preact/devtools`, `preact/hooks`, `preact/test-utils`, `preact/compat/test-utils`, `preact/jsx-runtime`, `preact/jsx-dev-runtime`, `preact/compat/client`, `preact/compat/server`, `preact/compat/server.browser`, `preact/compat/jsx-runtime`, `preact/compat/jsx-dev-runtime`, and `preact/compat/scheduler`.
 - Each package also exports its own `package.json` file.
 
 ## Repository layout
@@ -46,7 +46,7 @@ The root `package.json` defines the package name, entry fields, and export map.
 
 - `build` runs all build jobs in parallel.
 - `build:core` bundles the root package.
-- `build:compat`, `build:debug`, `build:devtools`, `build:hooks`, `build:test-utils`, and `build:jsx` bundle the related packages.
+- `build:compat`, `build:debug`, `build:devtools`, `build:hooks`, `build:test-utils`, and `build:jsx` bundle the package-specific builds.
 - `dev`, `dev:hooks`, and `dev:compat` run watch builds for the root package and selected packages.
 
 ### Test
