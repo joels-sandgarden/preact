@@ -2,7 +2,7 @@
 
 ## Overview
 
-This page describes the root `preact` package. It covers the runtime API, the component model, context helpers, shared utilities, and the public types that support those exports.
+This page documents the root `preact` package. It covers the runtime API, the component model, context helpers, shared utilities, and the public types that support those exports.
 
 The JSX intrinsic element map and the DOM and event typing live in the repository declaration files and do not repeat here.
 
@@ -10,11 +10,11 @@ The JSX intrinsic element map and the DOM and event typing live in the repositor
 
 ### `render(vnode, parent)`
 
-Use `render()` to mount a component tree into a container that implements the `ContainerNode` shape. Later calls reuse the same mounted tree and update the existing DOM.
+Use `render()` to mount a component tree into a container that matches `ContainerNode`. Later calls reuse the same mounted tree and update the existing DOM.
 
 ### `hydrate(vnode, parent)`
 
-Use `hydrate()` when server rendered HTML already exists in the container. The function attaches Preact to that DOM and continues with normal updates after the first pass.
+Use `hydrate()` when server rendered HTML already exists in the container. It attaches Preact to that DOM and continues with normal updates after the first pass.
 
 ### `ContainerNode`
 
@@ -24,7 +24,7 @@ Use `hydrate()` when server rendered HTML already exists in the container. The f
 
 ### `createElement()` and `h()`
 
-`createElement()` and its alias `h()` build virtual nodes. Both functions accept an element name, a component, props, and children. The exported overloads preserve strong typing for standard HTML and SVG elements, custom elements, and component props.
+`createElement()` and its alias `h()` build virtual nodes from an element name, a component, props, and children. The exported overloads preserve strong typing for standard HTML and SVG elements, custom elements, and component props.
 
 ### `Fragment`
 
@@ -46,7 +46,7 @@ Use `isValidElement()` to test whether a value is a Preact virtual node.
 
 ### `createContext(defaultValue)`
 
-Use `createContext()` to define shared state for a subtree. The returned context object exposes both `Provider` and `Consumer` so components can supply and read values without manual prop passing.
+Use `createContext()` to define shared state for a subtree. The returned context object exposes both `Provider` and `Consumer` so components can share values without threading props through each level.
 
 ### `Provider` and `Consumer`
 
@@ -64,7 +64,16 @@ Use `toChildArray()` to flatten children into a predictable array that only cont
 
 ### `options`
 
-`options` exposes global hooks for vnode creation, unmounting, diff completion, event handling, scheduling, debug values, suspense coordination, and attribute serialization.
+`options` exposes global hooks for lifecycle, event handling, scheduling, debug values, suspense coordination, and attribute serialization.
+
+- `vnode`: runs when Preact creates a vnode.
+- `unmount`: runs just before Preact removes a vnode.
+- `diffed`: runs after Preact finishes a vnode update.
+- `event`: intercepts browser events before Preact handles them.
+- `requestAnimationFrame` and `debounceRendering`: control render scheduling.
+- `useDebugValue` and `_addHookName`: support debug tooling.
+- `__suspenseDidResolve`: coordinates suspense resolution.
+- `attr`: customizes attribute serialization for precompiled JSX.
 
 ## Component base class
 
