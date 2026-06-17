@@ -5,11 +5,13 @@
 This document describes the automatic JSX runtime exported by `preact/jsx-runtime`.
 `preact/jsx-dev-runtime` exposes the same API surface and adds the development entry point expected by JSX tooling.
 
+Note: production builds use `preact/jsx-runtime`, and development builds use `preact/jsx-dev-runtime`.
+
 ## Prerequisites
 
 - A JSX transform that targets the automatic runtime.
 - `preact` installed in the project.
-- A build setup that can point JSX output at `preact`.
+- A build setup that routes JSX output to `preact`.
 
 ## Configuration
 
