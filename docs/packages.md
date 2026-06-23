@@ -13,7 +13,7 @@
 
 | Package | Purpose | Notes |
 | --- | --- | --- |
-| `preact-compat` | React compatibility layer | Maps React-style APIs to `preact`.
+| `preact-compat` | React compatibility layer | Maps React APIs to `preact`.
 | `preact-hooks` | Hooks API | Provides state, effect, memo, context, and error boundary helpers.
 | `jsx-runtime` | Automatic JSX runtime | Supports `jsx`, `jsxs`, and `jsxDEV`.
 | `preact-debug` | Development diagnostics | Adds prop warnings and component stack helpers.
