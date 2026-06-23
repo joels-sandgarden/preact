@@ -12,25 +12,25 @@
 ## `compat`
 
 - `compat` exports the React-compatible surface that mirrors the APIs most applications expect from React.
-- It builds on the core runtime so existing React-oriented code can render through `preact` without rewriting every component.
+- It builds on the core runtime so existing React code can render with `preact` without rewriting every component.
 - It exists to make migration practical when a codebase depends on React conventions and wants a smaller runtime.
 
 ## `hooks`
 
 - `hooks` exports state, effect, memo, callback, ref, context, and reducer helpers for function components.
-- It layers on top of the core component model and shares the same update cycle as the rest of `preact`.
-- It exists to give function components the same stateful building blocks that class components and framework-style integrations already rely on.
+- It works on top of the core component model and shares the same update cycle as the rest of `preact`.
+- It exists to give function components the same stateful building blocks that class components and framework integrations already rely on.
 
 ## `debug`
 
-- `debug` exports development-only warnings and helpers that explain invalid props, usage mistakes, and component state during development.
+- `debug` exports warnings and helpers for development that explain invalid props, usage mistakes, and component state.
 - It reads the same component data that the core runtime tracks, then reports that information in a clearer form.
 - It exists to make integration issues easier to spot before they reach production.
 
 ## `devtools`
 
 - `devtools` exports the bridge that lets browser devtools inspect the component tree and hook activity.
-- It connects to the core runtime through the shared options hook and forwards runtime events to the inspection tools.
+- It connects to the core runtime through the shared `options` hook and forwards runtime events to the inspection tools.
 - It exists to make interactive debugging and performance inspection work with `preact` applications.
 
 ## `jsx-runtime`
