@@ -9,6 +9,7 @@
 - `createElement`, `h`, and the JSX runtime build vnodes from component trees.
 - `render` and `hydrate` reconcile vnodes into a parent DOM node.
 - The diff system compares the new tree with stored children and applies the smallest useful DOM changes.
+- `src/render.js`, `src/component.js`, and `src/diff/` carry the render loop, update queue, and diff helpers.
 
 ## Component model
 
