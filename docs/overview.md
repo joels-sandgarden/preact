@@ -18,6 +18,6 @@
 
 ## Related pages
 
-- [Architecture](./architecture.md)
+- [Core architecture](./architecture.md)
 - [Packages](./packages.md)
 - [Development workflow](./development.md)
