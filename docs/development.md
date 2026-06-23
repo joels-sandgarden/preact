@@ -14,8 +14,7 @@
 - `npm run dev` watches the core package.
 - `npm run dev:hooks` and `npm run dev:compat` watch the add-ons.
 - `npm test` runs build, lint, and unit tests.
-- `npm run build` produces package artifacts across the repository.
-- Run `npm run build` after source changes to refresh generated package output.
+- `npm run build` produces package artifacts across the repository and refreshes generated package output.
 - `npm run lint` runs `oxlint` and `tsc`.
 - `npm run format` and `npm run format:check` keep formatting consistent.
 - `npm run test:vitest`, `npm run test:ts`, and `npm run test:vitest:watch` target specific suites.
