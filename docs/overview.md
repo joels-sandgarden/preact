@@ -15,9 +15,3 @@
 - `preact` exports rendering, hydration, component helpers, context, cloning, child helpers, and runtime options.
 - Add-ons extend the core through shared renderer options.
 - Package sources live in dedicated directories and build outputs land in `dist/`.
-
-## Repository at a glance
-
-- `preact` exports rendering, hydration, component helpers, context, cloning, child helpers, and runtime options.
-- Add-ons extend the core through shared renderer options.
-- Package sources live in dedicated directories and build outputs land in `dist/`.
