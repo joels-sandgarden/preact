@@ -2,27 +2,40 @@
 
 ## Overview
 
-`preact` uses npm scripts for builds, linting, formatting, and test runs.
+This guide covers local setup, the main development scripts, branch and release practices, and the repository areas that maintainers review most often.
 
 ## Setup
 
 1. Install dependencies with `npm install`.
-2. Run `npm run test:install` if Chromium is not available for browser tests.
+2. Run `npm run test:install` when Chromium is unavailable and browser tests need a local installation.
+
+## Branch and release conventions
+
+- Use short, topic-based branch names that describe the change.
+- Keep each branch focused on a single piece of work so reviews stay small and clear.
+- Prepare release work only after the full build, lint, and test flow passes on the repository.
+- Treat released versions as the result of the normal build and test process.
 
 ## Common tasks
 
-- `npm run dev` watches the core package.
-- `npm run dev:hooks` and `npm run dev:compat` watch the add-ons.
-- `npm test` runs build, lint, and unit tests.
-- `npm run build` produces package artifacts across the repository and refreshes generated package output.
-- `npm run lint` runs `oxlint` and `tsc`.
-- `npm run format` and `npm run format:check` keep formatting consistent.
-- `npm run test:vitest`, `npm run test:ts`, and `npm run test:vitest:watch` target specific suites.
+- `npm run dev` watches the core package during local development.
+- `npm run dev:hooks` watches the hooks add-on.
+- `npm run dev:compat` watches the compat add-on.
+- `npm test` runs the build, lint, and unit test steps together.
+- `npm run build` creates package artifacts across the repository and refreshes generated package output.
+- `npm run lint` runs `oxlint` and `tsc` to catch code quality and type issues.
+- `npm run format` applies the repository format rules.
+- `npm run format:check` verifies formatting without changing files.
+- `npm run test:vitest` runs the Vitest suite.
+- `npm run test:ts` runs the TypeScript-focused checks.
+- `npm run test:vitest:watch` keeps the Vitest suite running in watch mode.
 
-## Working habits
+## Repository structure
 
-- Keep changes aligned with `src/`, package subdirectories, and their tests.
-- Check generated `dist/` output only after a build.
+- Keep source changes in `src/` and in the package directories that own the behavior.
+- Add or update tests beside the code they cover.
+- Review `dist/` and similar generated output only after a build refreshes it.
+- Treat generated files as build results and leave them untouched unless a build changes them.
 
 ## Related pages
 
