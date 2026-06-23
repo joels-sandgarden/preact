@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes the runtime path that turns vnodes into DOM, batches component updates, and handles context, cloning, hooks, and errors.
+This document describes the core runtime that turns vnodes into DOM, updates components, and handles context, cloning, hooks, and errors.
 
 ## Source map
 
@@ -20,19 +20,19 @@ This document describes the runtime path that turns vnodes into DOM, batches com
 
 ## Vnode creation
 
-The classic factory and the automatic JSX runtime both create normalized vnode objects. They copy props, preserve keys and refs, attach internal bookkeeping fields, and run vnode hooks when a vnode enters the tree for the first time.
+The classic factory and the automatic JSX runtime build vnode objects. They copy props, preserve keys and refs, attach internal bookkeeping fields, and run vnode hooks when a vnode enters the tree for the first time.
 
 ## Render and hydrate
 
-`render` stores the previous vnode tree on the parent DOM node, prepares commit and ref queues, and runs the diff against the new tree. `hydrate` marks the vnode tree for hydration before it calls `render`, so the diff can attach to existing markup instead of rebuilding it.
+`render` stores the previous vnode tree on the parent DOM node, prepares commit and ref queues, and runs the diff against the new tree. Hydration mode lets the diff attach to existing markup instead of rebuilding it.
 
 ## Diffing and child reconciliation
 
-The diff engine compares the new tree with the stored tree, reuses matching DOM, updates props, inserts or moves nodes, and removes leftovers. The child reconciler flattens nested child lists, matches keys and types, and keeps the DOM order stable while it walks each branch of the tree.
+The diff engine compares the new tree with the stored tree, reuses matching DOM, updates props, inserts or moves nodes, and removes leftovers. The child reconciler flattens nested child lists, matches keys and types, and keeps DOM order stable while it walks each branch of the tree.
 
 ## Component model and render queue
 
-The component base class gives components `setState`, `forceUpdate`, and `render`. `setState` merges the next state and queues a render, `forceUpdate` marks a component for an immediate refresh, and the queue sorts pending components by tree depth before it flushes them.
+The component base class exposes `setState`, `forceUpdate`, and `render`. `setState` merges the next state and queues a render, `forceUpdate` marks a component for an immediate refresh, and the queue sorts pending components by tree depth before it flushes them.
 
 ## Context propagation
 
@@ -40,11 +40,11 @@ The context helper builds a provider and consumer pair around a shared value. Th
 
 ## Cloning
 
-The cloning helper creates a new vnode from an existing vnode. It copies the original props, applies any new props, and replaces the key, ref, or children when the caller supplies new values.
+The cloning helper creates a new vnode from an existing vnode. It copies the original props, applies new props, and replaces the key, ref, or children when the caller supplies new values.
 
 ## Options hooks
 
-The options object exposes callback slots that extensions and renderer packages use to observe runtime events. The runtime calls those hooks around vnode creation, diffing, rendering, commit work, and error handling.
+The options object exposes callback hooks that extensions and renderer packages use to observe runtime events. The runtime calls those hooks around vnode creation, diffing, rendering, commit work, and error handling.
 
 ## Constants and flags
 
