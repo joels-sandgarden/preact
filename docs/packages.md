@@ -7,6 +7,7 @@
 ## Core package
 
 - `preact` exports rendering, hydration, components, context, clone helpers, and `options`.
+- The root package publishes source from `src/` and compiled output from `dist/`.
 
 ## Add-ons and companion packages
 
