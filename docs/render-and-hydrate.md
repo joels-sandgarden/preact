@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes `src/render.js`, the module that turns a vnode tree into DOM and updates the same container on later calls.
+This document covers `src/render.js`, the module that turns a vnode tree into DOM and updates the same container on later calls.
 
 ## `render(vnode, parentDom)`
 
@@ -23,15 +23,15 @@ This document describes `src/render.js`, the module that turns a vnode tree into
 1. It sets `MODE_HYDRATE` on `vnode._flags`.
 2. It calls `render(vnode, parentDom)` immediately.
 
-Hydration does not use a separate renderer. It follows the same path as a normal render, but the hydration flag tells the diff step to reconcile against existing DOM instead of starting from a clean mount.
+Hydration does not use a separate renderer. It follows the render path with a hydration flag that tells the diff step to reconcile against existing DOM instead of starting from a clean mount.
 
 ## Render vs. hydration
 
-Normal render and hydration share the same pipeline, but they start from different assumptions.
+Normal render and hydration use the same reconciliation flow, but they start from different assumptions.
 
 - Normal render reuses `parentDom._children` as the previous tree and lets the diff step update the container from that cached vnode tree.
 - Hydration sets `MODE_HYDRATE` so the diff step attaches to existing DOM and checks what is already in the container.
-- Both paths end in `diff(...)` and `commitRoot(...)`, so they share the same reconciliation and post commit flow.
+- Both paths end in `diff(...)` and `commitRoot(...)`.
 
 ## Related flags
 
