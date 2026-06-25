@@ -1,6 +1,6 @@
 # Changelog
 
-## Recent changes
+## Latest changes
 
 - 2026-06-09: Corrected a typo in `vitest.config.mjs` by changing `node_nodules` to `node_modules`.
 - 2026-06-02: Switched the release workflow to npm staged publishing and bumped npm to `11.15.0`.
