@@ -27,12 +27,12 @@ Hydration does not use a separate renderer. It follows the render path with a hy
 
 ## Render vs. hydration
 
-Normal render and hydration use the same reconciliation flow, but they start from different assumptions.
+Normal render and hydration use a shared reconciliation flow, but they start from different assumptions.
 
 - Normal render reuses `parentDom._children` as the previous tree and lets the diff step update the container from that cached vnode tree.
-- Hydration sets `MODE_HYDRATE` so the diff step attaches to existing DOM and checks what is already in the container.
+- Hydration sets `MODE_HYDRATE` so the diff step attaches to existing DOM.
 - Both paths end in `diff(...)` and `commitRoot(...)`.
 
 ## Related flags
 
-`MODE_HYDRATE` marks a vnode for hydration, and `RESET_MODE` clears mode bits after a successful diff pass.
+`MODE_HYDRATE` marks a vnode for hydration, and `RESET_MODE` clears `MODE_HYDRATE` and `MODE_SUSPENDED` after a successful diff pass.
