@@ -20,7 +20,7 @@ Use `render()` to mount or update a tree in a DOM parent.
 
 ## Behavior and guarantees
 
-The browser tests back these guarantees:
+The browser tests cover these guarantees:
 
 - `render()` works with `document` and writes into `document.documentElement`.
 - `render()` also works in an alternative document, such as an iframe.
