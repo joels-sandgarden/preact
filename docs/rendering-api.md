@@ -2,17 +2,17 @@
 
 ## Overview
 
-The `preact` package exports `render` and `hydrate` from the rendering module. Both functions accept a virtual node and a DOM parent, and both follow the package level API from `preact`.
+The `preact` package exports `render` and `hydrate` from its rendering module.
 
 ## `render(vnode, parentDom)`
 
-`render()` accepts a virtual node and a DOM element.
+Use `render()` to mount or update a tree in a DOM parent.
 
 - When `parentDom` equals `document`, the implementation targets `document.documentElement`.
-- Before diffing, the module calls `options._root(vnode, parentDom)` when that hook exists.
-- The implementation stores the previous tree on `parentDom._children`, then reuses that tree on later calls against the same DOM node.
+- The module calls `options._root(vnode, parentDom)` when that hook exists.
+- It stores the previous tree on `parentDom._children` and reuses that tree on later calls against the same node.
 - It wraps the incoming node in `Fragment` before it calls `diff()`.
-- It passes commit and ref queues into `diff()`, then calls `commitRoot()` to flush queued work after diffing finishes.
+- It passes commit and ref queues into `diff()`, then calls `commitRoot()` after diffing finishes.
 
 ## `hydrate(vnode, parentDom)`
 
@@ -20,7 +20,7 @@ The `preact` package exports `render` and `hydrate` from the rendering module. B
 
 ## Behavior and guarantees
 
-The browser tests cover these behaviors:
+The browser tests back these guarantees:
 
 - `render()` works with `document` and writes into `document.documentElement`.
 - `render()` also works in an alternative document, such as an iframe.
@@ -28,7 +28,7 @@ The browser tests cover these behaviors:
 - `hydrate()` skips comment nodes while it matches DOM nodes.
 - `hydrate()` supports `Fragment` nodes, including a root `Fragment`.
 - `hydrate()` attaches event handlers to existing DOM during hydration.
-- `render()` and `hydrate()` flush queued effects and ref callbacks after diffing.
+- `commitRoot()` flushes queued effects and ref callbacks after diffing.
 
 ## Examples
 
