@@ -2,7 +2,7 @@
 
 ## Overview
 
-`src/render.js` provides the public entry points that turn a vnode into DOM. `render()` reconciles the vnode against a parent DOM node, supports hydration, and finishes the update with root hook handling and commit work. `hydrate()` enables hydration on the vnode and then delegates to `render()`.
+`src/render.js` exposes the public entry points for rendering and hydration.
 
 ## Prerequisites
 
