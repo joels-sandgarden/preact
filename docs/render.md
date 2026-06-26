@@ -32,10 +32,3 @@ hydrate(vnode, parentDom)
 
 1. It sets `MODE_HYDRATE` on the vnode.
 2. It calls `render(vnode, parentDom)`.
-
-## Runtime details
-
-- `parentDom._children` stores the latest vnode tree for repeat renders on the same container.
-- Hydration mode skips the previous tree lookup and lets `diff()` work against the existing DOM.
-- First renders pass `parentDom.firstChild ? slice.call(parentDom.childNodes) : NULL` into `diff()` so the renderer can reconcile existing nodes.
-- `commitRoot()` flushes the commit queue and the ref queue after diffing completes.
