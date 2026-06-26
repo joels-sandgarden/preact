@@ -18,11 +18,9 @@
 4. Runs root hooks after diffing completes.
 5. Flushes the ref and commit queues so DOM side effects land after the tree settles.
 
-The function also stores the reconciled root vnode in `parentDom._children`. That cache lets later renders compare against the last rendered tree.
-
 ## `hydrate()`
 
-`hydrate()` prepares a vnode for hydration, then calls `render()` with the same parent DOM node. It gives `render()` the signal it needs to match the vnode against existing DOM instead of building a fresh tree from scratch.
+`hydrate()` marks a vnode for hydration before delegating to `render()` with the same parent DOM node.
 
 ## Hydration and commit flow
 
