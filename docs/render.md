@@ -23,8 +23,9 @@ hydrate(vnode, parentDom)
 3. It checks `vnode._flags & MODE_HYDRATE` to decide whether the call runs in hydration mode.
 4. It reads `parentDom._children` for the previous tree when `MODE_HYDRATE` is not set.
 5. It stores `createElement(Fragment, NULL, [vnode])` on `parentDom._children`.
-6. It calls `diff()` with the stored tree, the namespace, the hydration flag, `parentDom.ownerDocument`, and either the previous vnode tree or the current DOM children when `parentDom._children` does not exist.
-7. It calls `commitRoot(commitQueue, parentDom._children, refQueue)` after diffing finishes.
+6. It calls `diff()` to reconcile the new tree against the current DOM.
+7. On the first render, it passes `parentDom.firstChild ? slice.call(parentDom.childNodes) : NULL` so the renderer can reuse existing markup.
+8. It calls `commitRoot(commitQueue, parentDom._children, refQueue)` after diffing finishes.
 
 ## `hydrate(vnode, parentDom)`
 
