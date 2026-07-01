@@ -52,7 +52,7 @@ You can find some awesome libraries in the [awesome-preact list](https://github.
 
 With Preact, user interfaces begin as vnode trees. Components are functions or classes that return the tree they want to display. Those trees usually come from [JSX](https://react.dev/learn/writing-markup-with-jsx) (shown underneath) or [HTM](https://github.com/developit/htm), which uses standard JavaScript tagged templates. Both syntaxes describe elements, their props, and their children.
 
-`render()` takes that vnode tree and reconciles it with the container's previous tree. It keeps the last tree on the DOM node, compares the new tree against it, and updates only the parts that changed. That approach keeps the DOM stable while Preact walks the tree, reuses components when it can, creates new ones when it must, and prepares any work that needs to wait until commit time.
+`render()` takes that vnode tree and reconciles it with the container's previous tree. It keeps the last tree on the DOM node, compares the new tree against it, and updates only the parts that changed. That approach keeps the DOM stable while Preact walks the tree, reuses existing components when it can, creates new ones when it must, and schedules commit-time work for a later flush.
 
 ```js
 import { h, render } from 'preact';
@@ -83,13 +83,13 @@ The second call changes only `Hello` to `Hello World!`, so Preact keeps the surr
 
 #### How Preact renders
 
-Preact follows a short three step flow: JSX or HTM produces a vnode tree, `render()` passes that tree into `diff()`, and `commitRoot()` flushes the queued work after reconciliation. During diffing, Preact creates a component when no previous instance exists, reuses an existing one when the types match, applies derived state, runs pre-render hooks, and lets `shouldComponentUpdate()` stop a render early when it returns `false`. Class components can also capture `getSnapshotBeforeUpdate()` before the DOM changes and extend context with `getChildContext()`.
+Preact follows a short three-step flow: JSX or HTM produces a vnode tree, `render()` passes that tree into `diff()`, and `commitRoot()` flushes the queued work after reconciliation. During diffing, Preact creates a component when no previous instance exists, reuses an existing one when the types match, applies derived state, runs pre-render hooks, and lets `shouldComponentUpdate()` stop a render early when it returns `false`. Class components can also capture `getSnapshotBeforeUpdate()` before the DOM changes and extend context with `getChildContext()`.
 
 Function components follow the same diffing path. If one of them marks itself dirty during render, Preact runs it again so the final tree stays in sync. `setState()` and `forceUpdate()` schedule rerenders through a queue, and Preact drains that queue in order so related updates stay consistent.
 
 The diff stage also reconciles children, places or moves DOM nodes, and collects refs for later. `componentDidMount()`, `componentDidUpdate()`, refs, and queued render callbacks all flush in `commitRoot()` after reconciliation finishes.
 
-The same pattern keeps larger component trees manageable. Each component can focus on its own subtree instead of recalculating the whole interface from scratch. Here's an example:
+The component example below shows the same pattern in a small subtree:
 
 ```js
 import { render, h } from 'preact';
