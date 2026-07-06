@@ -2,7 +2,7 @@
 
 ## Overview
 
-The component module powers Preact's class component base class and the queue that drives mounted component updates. The public `Component` export maps to `BaseComponent`, so application code reaches this behavior through the main package API.
+The component module powers Preact's class component base class and the queue that drives mounted component updates. The public `Component` export maps to `BaseComponent`, so application code reaches this behavior through the public API.
 
 ## API summary
 
