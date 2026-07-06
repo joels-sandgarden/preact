@@ -20,7 +20,7 @@ The component module powers Preact's class component base class and the queue th
 - `_renderCallbacks` stores callbacks that run after render.
 - `_stateCallbacks` stores callbacks passed to `setState`.
 - `_vnode` points to the current vnode.
-- `_parentDom` points to the parent DOM node for in place updates.
+- `_parentDom` points to the parent DOM node for in place rerenders.
 
 `setState()` merges partial state into `_nextState`. It also accepts an updater function, and that function receives a copy of the pending state plus the current `props`. When the component is already mounted, `setState()` stores the callback in `_stateCallbacks` and calls `enqueueRender()`.
 
@@ -32,11 +32,11 @@ The component module powers Preact's class component base class and the queue th
 
 ## Render queue
 
-`enqueueRender()` marks a component dirty with `COMPONENT_DIRTY`, adds it to the rerender queue, and schedules `process()`. The queue flush runs on `queueMicrotask()` by default, or through `options.debounceRendering` when that hook exists.
+`enqueueRender()` marks a component dirty with `COMPONENT_DIRTY`, adds it to the rerender queue, and schedules `process()`. The render queue flush runs on `queueMicrotask()` by default, or through `options.debounceRendering` when that hook exists.
 
 `process()` drains the queue in depth order. `depthSort()` sorts queued components by vnode depth so parent updates run before nested updates. `process()` keeps consuming the queue until it empties, which lets new updates that appear during a flush join the same pass.
 
-`renderComponent()` performs the in place update. It clones the current vnode, runs `diff()` against the previous tree, commits the changes with `commitRoot()`, and then refreshes cached parent DOM pointers with `updateParentDomPointers()` when the rendered DOM node changes. This pipeline keeps the component tree and DOM tree aligned while class component updates move through the queue.
+`renderComponent()` performs the in place rerender. It clones the current vnode, runs `diff()` against the previous tree, commits the changes with `commitRoot()`, and then refreshes cached parent DOM pointers with `updateParentDomPointers()` when the rendered DOM node changes. This pipeline keeps the component tree and DOM tree aligned while class component updates move through the queue.
 
 ## Reference
 
