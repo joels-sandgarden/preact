@@ -2,7 +2,7 @@
 
 ## Overview
 
-`src/component.js` defines the internal component base constructor and the rerender machinery that keeps vnode state, DOM pointers, and render order aligned. The module focuses on implementation behavior inside the renderer, not on public component authoring.
+`src/component.js` defines the internal component base constructor and the rerender path that keeps component state, DOM pointers, and update order aligned. The module focuses on implementation behavior inside the renderer, not on public component authoring.
 
 ## BaseComponent
 
@@ -46,17 +46,10 @@
 
 ## Render queue and batching
 
-`enqueueRender()`:
+`enqueueRender()` marks the component dirty, adds it to `rerenderQueue`, and schedules `process()` with `options.debounceRendering` or `queueMicrotask()` when no custom scheduler exists.
 
-- Marks the component dirty.
-- Pushes the component into `rerenderQueue`.
-- Schedules `process()` with `options.debounceRendering`, or `queueMicrotask()` when the option is absent.
+`process()` sorts queued components by vnode depth, flushes them in parent before child order, and keeps working through items that enter the queue during the same flush.
 
-`process()`:
-
-- Sorts queued components by vnode depth.
-- Flushes components in parent before child order.
-- Keeps working through items that enter the queue during the same flush.
-- Uses `try/finally` to clear `rerenderQueue` and `rerenderCount` after every run, even when rendering throws.
+`process()` uses `try/finally` to clear `rerenderQueue` and `rerenderCount` after every run, even when rendering throws.
 
 `resetRenderCount()` clears the rerender counter when the caller needs to restart the flush guard.
