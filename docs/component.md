@@ -103,5 +103,4 @@ A `finally` block clears `rerenderQueue` and resets `rerenderCount` after every 
 
 ## Reference
 
-- `src/index.js` exposes `BaseComponent` as `Component`.
-- `test/browser/components.test.jsx` covers mounted only scheduling, callback timing, depth ordered rerenders, and queue recovery after an error.
+- `test/browser/components.test.jsx` covers mounted component scheduling, callback timing, depth order, and queue recovery after an error.
