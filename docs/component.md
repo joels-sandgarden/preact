@@ -44,11 +44,11 @@ If `setState()` receives a callback, the method stores that callback in `_stateC
 
 `commitRoot()` flushes refs first and then runs queued component callbacks. `setState()` and `forceUpdate()` both rely on that order when they collect lifecycle work.
 
-`updateParentDomPointers()` keeps ancestor `_dom` references accurate after a child moves or the rendered DOM node changes. It walks through parent component vnodes, clears the stored pointer, and records the first live child DOM node it finds.
+`updateParentDomPointers()` keeps ancestor `_dom` references accurate after a child moves or the rendered DOM node changes. It clears each ancestor component's stored DOM anchor and rebuilds it from the first live child DOM node it finds.
 
 ## DOM sibling lookup
 
-`getDomSibling()` finds the next mounted DOM node for insertions and replacements. When it starts from a vnode child index, it scans the remaining children until it finds a vnode with a live `_dom` pointer. When a subtree contains no direct DOM node, the helper climbs through parent component vnodes and continues the search from the next sibling in the parent array.
+`getDomSibling()` finds the next mounted DOM node for insertions and replacements. When it starts from a vnode child index, it scans the remaining children until it finds a vnode with a live `_dom` pointer. When a subtree has no direct DOM sibling, the helper climbs through parent component vnodes and continues the search from the next sibling in the parent array.
 
 The tests cover the cases that matter here: direct siblings, text nodes, fragments, placeholders, nested components, wrapper components that return JSX children, and empty subtrees that must return `null`.
 
@@ -56,6 +56,6 @@ The tests cover the cases that matter here: direct siblings, text nodes, fragmen
 
 `enqueueRender()` marks a component dirty, pushes it onto the rerender queue once, and schedules `process()` with `options.debounceRendering` when that hook exists. If no custom debouncer exists, the module falls back to `queueMicrotask()`.
 
-`process()` drains the queue in depth order so parent updates run before deeper descendants. It sorts the queue before each pass when new work arrives during the flush, which keeps newly queued renders in the same top to bottom pass. That behavior matters when a parent update adds work for children while the queue still runs.
+`process()` drains the queue in depth order so parent updates run before deeper descendants. New renders can join the queue during a flush, and `process()` sorts again before it continues so parents still run before deeper descendants. That behavior matters when a parent update adds work for children while the queue still runs.
 
 `resetRenderCount()` exists as an internal helper for queue recovery and tests. It resets the guard that prevents duplicate scheduling while the queue drains.
