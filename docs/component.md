@@ -2,7 +2,7 @@
 
 ## Overview
 
-`src/component.js` defines the internal component base constructor and the rerender path that keeps component state, DOM pointers, and update order aligned. The module focuses on implementation behavior inside the renderer, not on public component authoring.
+`src/component.js` defines the internal component base constructor and the rerender path that keeps component state, DOM pointers, and update order aligned. The module focuses on how the renderer updates a component, not on public component authoring.
 
 ## BaseComponent
 
@@ -42,14 +42,12 @@
 - Clears the old vnode's `_parent` and `_dom` pointers.
 - Calls `updateParentDomPointers()` when the committed DOM node changes.
 
-`updateParentDomPointers()` repairs ancestor `_dom` pointers from the first rendered child it can find so later sibling lookups still find the right insertion point.
+`updateParentDomPointers()` repairs ancestor `_dom` pointers by taking the first rendered child it can find, so later sibling lookups keep the right insertion point.
 
 ## Render queue and batching
 
 `enqueueRender()` marks the component dirty, adds it to `rerenderQueue`, and schedules `process()` with `options.debounceRendering` or `queueMicrotask()` when no custom scheduler exists.
 
-`process()` sorts queued components by vnode depth, flushes them in parent before child order, and keeps working through items that enter the queue during the same flush.
-
-`process()` uses `try/finally` to clear `rerenderQueue` and `rerenderCount` after every run, even when rendering throws.
+`process()` sorts queued components by vnode depth, flushes them in parent before child order, keeps new items in the same pass, and uses `try/finally` to clear `rerenderQueue` and `rerenderCount` after every run, even when rendering throws.
 
 `resetRenderCount()` clears the rerender counter when the caller needs to restart the flush guard.
