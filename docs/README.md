@@ -1,5 +1,5 @@
 # Documentation
 
-This directory groups the project documentation in one place.
+This directory serves as the entry point for the component module reference.
 
-- [Component module reference](./component.md) — details the component system, including vnode creation, diffing, lifecycle behavior, the rendering pipeline, and utility exports.
+- [Component module reference](./component.md) — Covers vnode creation, diffing, lifecycle behavior, the rendering pipeline, and utility exports.
