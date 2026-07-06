@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes `BaseComponent` in `src/component.js` and the helpers that keep component updates, rerender scheduling, and DOM placement in sync. It covers `setState()`, `forceUpdate()`, the default `render()` method, and the functions that locate sibling DOM nodes and flush the render queue.
+This document describes `BaseComponent` in `src/component.js` and the helpers that keep component updates, rerender scheduling, and DOM placement in sync. See the repository overview in [README](../README.md) for broader project context. It covers `setState()`, `forceUpdate()`, the default `render()` method, and the functions that locate sibling DOM nodes and flush the render queue.
 
 ## Prerequisites
 
@@ -74,14 +74,28 @@ This document describes `BaseComponent` in `src/component.js` and the helpers th
 
 ```js
 import { BaseComponent } from '../src/component.js';
-import { Fragment } from '../src/create-element.js';
 
-BaseComponent.prototype.setState(update, callback);
-BaseComponent.prototype.forceUpdate(callback);
-BaseComponent.prototype.render = Fragment;
+class Counter extends BaseComponent {
+  constructor(props, context) {
+    super(props, context);
+    this.state = { count: 0 };
+  }
+
+  render(props, state) {
+    return state.count;
+  }
+
+  increment() {
+    this.setState(prev => ({ count: prev.count + 1 }));
+  }
+
+  refresh() {
+    this.forceUpdate();
+  }
+}
 ```
 
-This example shows the public methods that `BaseComponent` adds and the default render path it uses.
+This example shows `setState()` and `forceUpdate()` on a subclass that defines its own render path.
 
 ## Best Practices
 
