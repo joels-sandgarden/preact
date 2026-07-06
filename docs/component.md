@@ -49,4 +49,4 @@ The module also exports the rerender queue machinery:
 
 ## Update lifecycle summary
 
-The module follows a simple chain: state update, enqueue, batch processing, diff and commit, and pointer cleanup. That sequence keeps component updates predictable while the rerender queue limits redundant work and preserves the correct DOM order.
+The update flow runs from state change to enqueueing, then through batched processing, diff and commit work, and finally pointer cleanup. That sequence keeps component updates predictable while the rerender queue limits redundant work and preserves DOM order.
