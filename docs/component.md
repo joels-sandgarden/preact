@@ -2,7 +2,7 @@
 
 ## Overview
 
-This module implements the core component state and update flow for the component system. It stores component data, queues rerenders, resolves DOM sibling placement, and keeps vnode pointers aligned after updates.
+This module drives component state changes, rerender scheduling, DOM sibling lookup, and pointer maintenance for the component system.
 
 ## Exports
 
@@ -11,7 +11,7 @@ This module implements the core component state and update flow for the componen
 `BaseComponent` stores `props`, `context`, and the internal state bits used by the component runtime. It also provides the component methods that drive updates:
 
 - `setState()` merges state changes and schedules a rerender when the component is mounted.
-- `forceUpdate()` marks the component for a forced render and queues it for work.
+- `forceUpdate()` marks the component for a forced render and queues it for rendering.
 - `render()` supplies the default render implementation.
 
 ### Render helpers
@@ -36,7 +36,7 @@ The module also exports the rerender queue machinery:
 
 `forceUpdate()` sets the force render flag and places the component in the rerender queue even when state does not change.
 
-`render()` gives subclasses a default implementation that returns no output until a component supplies its own render logic.
+`render()` gives subclasses a default implementation that returns `null` until a component supplies its own render logic.
 
 ## Render and update flow
 
