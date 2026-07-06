@@ -1,8 +1,8 @@
-# `src/component.js`
+# Component reference
 
 ## Overview
 
-`src/component.js` powers Preact's class component base class and the queue that drives mounted component updates. The public `Component` export in `src/index.js` points to `BaseComponent`, so application code reaches this module through the main package API.
+The component module powers Preact's class component base class and the queue that drives mounted component updates. The public `Component` export maps to `BaseComponent`, so application code reaches this behavior through the main package API.
 
 ## API summary
 
@@ -22,7 +22,7 @@
 - `_vnode` points to the current vnode.
 - `_parentDom` points to the parent DOM node for in place updates.
 
-`setState()` merges partial state into `_nextState`. It also accepts an updater function, and that function receives a copy of the pending state plus the current `props`. When the component already mounted, `setState()` stores the callback in `_stateCallbacks` and calls `enqueueRender()`.
+`setState()` merges partial state into `_nextState`. It also accepts an updater function, and that function receives a copy of the pending state plus the current `props`. When the component is already mounted, `setState()` stores the callback in `_stateCallbacks` and calls `enqueueRender()`.
 
 `forceUpdate()` sets `COMPONENT_FORCE`, stores any callback in `_renderCallbacks`, and enqueues the component. The next render skips `shouldComponentUpdate()` because the force bit stays set until the update runs. `BaseComponent.prototype.render` points to `Fragment`, so subclasses override `render()` with their own output.
 
