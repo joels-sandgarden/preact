@@ -8,7 +8,7 @@ This module runs the component update layer for the runtime. It defines shared b
 
 ### Public surface
 
-- `BaseComponent` supplies the shared constructor for class components and function components.
+- `BaseComponent` supplies the shared constructor for component instances.
 - `setState()` clones state, merges partial updates, stores callbacks, and schedules a rerender once mounted.
 - `forceUpdate()` marks a component for a forced render and skips `shouldComponentUpdate()`.
 - `render()` points to `Fragment` by default, so a component without its own render method renders through the fragment path.
