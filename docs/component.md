@@ -8,6 +8,8 @@
 import { Component } from 'preact';
 ```
 
+Queued callbacks run after the rerender commits, so they see the latest state and DOM.
+
 This module also supplies the internal helpers that locate DOM siblings, rerender dirty components, and repair parent DOM pointers after a render changes the tree shape.
 
 ## Public API
@@ -26,11 +28,11 @@ This module also supplies the internal helpers that locate DOM siblings, rerende
 - A falsy return value stops the update and leaves the queue untouched.
 - A truthy object merges into the pending state.
 
-`setState` only schedules work after the component mounts. Before mount, it still prepares `_nextState`, but it does not queue a render or a callback. After mount, it appends the callback to `_stateCallbacks` and enqueues the component for rerendering.
+`setState` only schedules work after the component mounts. Before mount, it still prepares `_nextState`, but it does not queue a render. After mount, it appends the callback to `_stateCallbacks` and enqueues the component.
 
 ### `forceUpdate(callback)`
 
-`forceUpdate` schedules a rerender without changing state. It marks the component with `COMPONENT_FORCE`, which lets the renderer skip `shouldComponentUpdate` for that pass. Like `setState`, it only queues work once the component has mounted, and it stores the callback in `_renderCallbacks`.
+`forceUpdate` schedules a rerender without changing state. It marks the component with `COMPONENT_FORCE`, which lets the renderer skip `shouldComponentUpdate` for that pass. When the component has mounted, it stores the callback in `_renderCallbacks` and enqueues the component for rerendering.
 
 ### `render(props, state, context)`
 
