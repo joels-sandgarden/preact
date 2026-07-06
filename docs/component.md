@@ -74,26 +74,14 @@ This document describes `BaseComponent` in `src/component.js` and the helpers th
 
 ```js
 import { BaseComponent } from '../src/component.js';
+import { Fragment } from '../src/create-element.js';
 
-class Counter extends BaseComponent {
-  constructor(props, context) {
-    super(props, context);
-    this.state = { count: 0 };
-  }
-
-  render(props, state) {
-    return state.count;
-  }
-
-  increment() {
-    this.setState(prev => ({ count: prev.count + 1 }));
-  }
-
-  refresh() {
-    this.forceUpdate();
-  }
-}
+BaseComponent.prototype.setState(update, callback);
+BaseComponent.prototype.forceUpdate(callback);
+BaseComponent.prototype.render = Fragment;
 ```
+
+This example shows the public methods that `BaseComponent` adds and the default render path it uses.
 
 ## Best Practices
 
