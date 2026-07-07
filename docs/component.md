@@ -2,13 +2,13 @@
 
 ## Overview
 
-`src/component.js` defines the core component runtime for the renderer. It gives components shared state update helpers, DOM sibling lookup, rerender handling, and queue processing.
+`src/component.js` defines the base component runtime and the internal render queue used by the renderer.
 
 ## Base component API
 
 ### `BaseComponent(props, context)`
 
-The constructor stores `props`, `context`, and `_bits` on each component instance.
+The constructor stores `props`, `context`, and `_bits` on the component instance.
 
 ### `setState(update, callback)`
 
@@ -17,21 +17,21 @@ The constructor stores `props`, `context`, and `_bits` on each component instanc
 - The first update clones `state` into `_nextState`.
 - Function updates receive a cloned copy of the pending state and the current props.
 - Falsy updates return without changing state.
-- When the component has a vnode, it queues `callback` in `_stateCallbacks` and schedules the component with `enqueueRender()`.
+- When the component already has a vnode, it queues `callback` in `_stateCallbacks` and schedules the component with `enqueueRender()`.
 
 ### `forceUpdate(callback)`
 
-`forceUpdate()` sets the `COMPONENT_FORCE` flag, queues `callback` in `_renderCallbacks`, and schedules the component. This flag lets the update path skip `shouldComponentUpdate`.
+`forceUpdate()` sets the `COMPONENT_FORCE` flag, queues `callback` in `_renderCallbacks`, and schedules the component. The update path uses this flag to skip `shouldComponentUpdate`.
 
 ### `render(props, state, context)`
 
-The default implementation points to `Fragment`, so components that do not override `render()` return a fragment.
+The default implementation returns `Fragment`, so components that do not override `render()` render a fragment.
 
 ## DOM lookup and rerendering
 
 ### `getDomSibling(vnode, childIndex)`
 
-`getDomSibling()` finds the next rendered DOM node for a vnode. It resumes from the parent when no child index is supplied, scans child vnodes for the first one with `_dom`, and falls back to the next sibling for function components.
+`getDomSibling()` finds the next rendered DOM node for a vnode. When `childIndex` is `null`, it resumes from the parent sibling. Otherwise it scans child vnodes for the first one with `_dom`, then falls back to the next sibling for function components.
 
 ### `renderComponent(component)`
 
@@ -39,7 +39,7 @@ The default implementation points to `Fragment`, so components that do not overr
 
 ### `updateParentDomPointers(vnode)`
 
-`updateParentDomPointers()` walks up through parent components and rebuilds each ancestor `_dom` pointer from the first child that still has a rendered DOM node.
+`updateParentDomPointers()` walks up through parent components and rebuilds each ancestor `_dom` pointer from the first child that still has rendered DOM.
 
 ## Render queue and scheduler
 
@@ -49,11 +49,11 @@ The default implementation points to `Fragment`, so components that do not overr
 
 ### `resetRenderCount()`
 
-`resetRenderCount()` clears the scheduler guard counter so future work can schedule a new flush.
+`resetRenderCount()` clears the scheduler guard counter so later work can schedule a new flush.
 
 ### `process()`
 
-`process()` flushes the queue. It keeps the queue sorted by component depth, rerenders dirty components with `renderComponent()`, and clears the queue in a `finally` block.
+`process()` flushes the queue. It sorts queued components by depth when needed, rerenders dirty components with `renderComponent()`, and clears the queue in a `finally` block.
 
 ### `depthSort`
 
