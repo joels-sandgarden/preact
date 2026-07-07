@@ -25,13 +25,13 @@ The constructor stores `props`, `context`, and `_bits` on the component instance
 
 ### `render(props, state, context)`
 
-The default implementation returns `Fragment`, so components that do not override `render()` render a fragment.
+`render()` uses `Fragment` by default, so components that do not override it render through a fragment.
 
 ## DOM lookup and rerendering
 
 ### `getDomSibling(vnode, childIndex)`
 
-`getDomSibling()` finds the next rendered DOM node for a vnode. When `childIndex` is `null`, it resumes from the parent sibling. Otherwise it scans child vnodes for the first one with `_dom`, then falls back to the next sibling for function components.
+`getDomSibling()` finds the next rendered DOM node for a vnode. When `childIndex` is `null`, it resumes from the parent vnode at the next child index. Otherwise it scans child vnodes for the first one with `_dom`, then falls back to the next sibling for function components.
 
 ### `renderComponent(component)`
 
