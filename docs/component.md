@@ -1,8 +1,8 @@
-# `src/component.js`
+# Class Component Base
 
 ## Overview
 
-This document describes the class component base used by `Component` in Preact. It covers how the module initializes a component instance, schedules updates, renders output, and keeps DOM pointers accurate while the tree changes.
+This document describes the class component base behind `Component` in Preact. It explains how the module creates component instances, schedules updates, returns output, and keeps DOM pointers accurate while the tree changes.
 
 ## Prerequisites
 
@@ -11,7 +11,7 @@ This document describes the class component base used by `Component` in Preact. 
 
 ## Exports
 
-The module defines `BaseComponent`, which `src/index.js` exposes as `Component`.
+The module exports `BaseComponent`, and `src/index.js` exposes it as `Component`.
 
 - `BaseComponent(props, context)` stores the incoming `props` and `context`, then initializes `_bits` to `0`.
 - `BaseComponent.prototype.setState(update, callback)` merges a partial state update into the pending state snapshot.
@@ -24,9 +24,9 @@ The module defines `BaseComponent`, which `src/index.js` exposes as `Component`.
 
 ## Component construction
 
-`BaseComponent` gives each instance the public `props` and `context` values it receives at construction time. It also starts `_bits` at `0` so the scheduler can mark the instance as dirty or forced later in the update cycle.
+`BaseComponent` gives each instance the public `props` and `context` values it receives at construction time. It also starts `_bits` at `0` so the scheduler can mark the instance as dirty or forced during later updates.
 
-The public `Component` class inherits this behavior. A class component extends it and implements `render()` to describe the output for the current `props`, `state`, and `context`.
+The public `Component` class inherits this behavior. A class component extends it and implements `render()` to describe output for the current `props`, `state`, and `context`.
 
 ```jsx
 import { Component, h } from 'preact';
@@ -49,7 +49,7 @@ class Counter extends Component {
 
 ## `setState(update, callback)`
 
-`setState()` prepares a pending state update and queues a re-render when the component is already mounted.
+`setState()` prepares a pending state update and queues a re-render when the component has mounted.
 
 - When `update` is an object, `setState()` merges its fields into the pending state.
 - When `update` is a function, `setState()` calls it with a shallow copy of the current pending state and the current `props`, then merges the returned object.
@@ -70,7 +70,7 @@ The method keeps the first pending update in `_nextState` and reuses that object
 
 ## Default `render()` behavior
 
-The base class assigns `Fragment` to `render()`. That default keeps the component from producing its own output and gives subclasses a clear starting point: override `render()` when the component should return visible content.
+The base class assigns `Fragment` to `render()`. That default keeps the component from producing its own output and leaves subclasses a clear starting point: override `render()` when the component should return visible content.
 
 ## Render queue and rerender flow
 
@@ -87,12 +87,12 @@ The base class assigns `Fragment` to `render()`. That default keeps the componen
 - It removes each queued component with `shift()` and renders only dirty entries.
 - It clears the queue and the scheduler counter at the end of the flush.
 
-`renderComponent()` performs the actual rerender for one component.
+`renderComponent()` performs the actual re-render for one component.
 
-- It clones the current vnode and increments the clone revision.
-- It calls `diff()` to compare the old and new vnode trees.
+- It copies the current vnode and increments the clone revision.
+- It compares the old and new vnode trees with `diff()`.
 - It calls `commitRoot()` to finish DOM updates and ref callbacks.
-- It clears the stale vnode and DOM links on the old tree.
+- It clears stale vnode and DOM links from the old tree.
 - It calls `updateParentDomPointers()` when the rendered DOM node changes position.
 
 ## DOM sibling lookup and pointer maintenance
