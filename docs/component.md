@@ -49,7 +49,7 @@ class Counter extends Component {
 
 ## `setState(update, callback)`
 
-`setState()` prepares a pending state update and queues a re-render when the component has mounted.
+`setState()` prepares a pending state update and queues a rerender when the component has mounted.
 
 - When `update` is an object, `setState()` merges its fields into the pending state.
 - When `update` is a function, `setState()` calls it with a shallow copy of the current pending state and the current `props`, then merges the returned object.
@@ -87,7 +87,7 @@ The base class assigns `Fragment` to `render()`. That default keeps the componen
 - It removes each queued component with `shift()` and renders only dirty entries.
 - It clears the queue and the scheduler counter at the end of the flush.
 
-`renderComponent()` performs the actual re-render for one component.
+`renderComponent()` performs the actual rerender for one component.
 
 - It copies the current vnode and increments the clone revision.
 - It compares the old and new vnode trees with `diff()`.
