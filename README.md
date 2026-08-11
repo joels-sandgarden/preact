@@ -50,9 +50,9 @@ You can find some awesome libraries in the [awesome-preact list](https://github.
 
 #### Tutorial: Building UI with Preact
 
-With Preact, you create user interfaces by assembling trees of components and elements. Components are functions or classes that return a description of what their tree should output. These descriptions are typically written in [JSX](https://react.dev/learn/writing-markup-with-jsx) (shown underneath), or [HTM](https://github.com/developit/htm) which leverages standard JavaScript Tagged Templates. Both syntaxes can express trees of elements with "props" (similar to HTML attributes) and children.
+With Preact, user interfaces begin as vnode trees. Components are functions or classes that return the tree they want to display. Those trees usually come from [JSX](https://react.dev/learn/writing-markup-with-jsx) (shown underneath) or [HTM](https://github.com/developit/htm), which uses standard JavaScript tagged templates. Both syntaxes describe elements, their props, and their children.
 
-To get started using Preact, first look at the render() function. This function accepts a tree description and creates the structure described. Next, it appends this structure to a parent DOM element provided as the second argument. Future calls to render() will reuse the existing tree and update it in-place in the DOM. Internally, render() will calculate the difference from previous outputted structures in an attempt to perform as few DOM operations as possible.
+`render()` takes that vnode tree and reconciles it with the container's previous tree. It keeps the last tree on the DOM node, compares the new tree against it, and updates only the parts that changed. That approach keeps the DOM stable while Preact walks the tree, reuses existing components when it can, creates new ones when it must, and schedules commit-time work for a later flush.
 
 ```js
 import { h, render } from 'preact';
@@ -76,10 +76,20 @@ render(
 	</main>,
 	document.body
 );
-// ^ this second invocation of render(...) will use a single DOM call to update the text of the <h1>
+// ^ this second invocation of render(...) updates only the text inside the <h1>
 ```
 
-Hooray! render() has taken our structure and output a User Interface! This approach demonstrates a simple case, but would be difficult to use as an application grows in complexity. Each change would be forced to calculate the difference between the current and updated structure for the entire application. Components can help here – by dividing the User Interface into nested Components each can calculate their difference from their mounted point. Here's an example:
+The second call changes only `Hello` to `Hello World!`, so Preact keeps the surrounding DOM and patches the text node in place. That same reconciliation model scales to components, where each component owns a subtree and Preact diffs that subtree against the previous result.
+
+#### How Preact renders
+
+Preact follows a short three-step flow: JSX or HTM produces a vnode tree, `render()` passes that tree into `diff()`, and `commitRoot()` flushes the queued work after reconciliation. During diffing, Preact creates a component when no previous instance exists, reuses an existing one when the types match, applies derived state, runs pre-render hooks, and lets `shouldComponentUpdate()` stop a render early when it returns `false`. Class components can also capture `getSnapshotBeforeUpdate()` before the DOM changes and extend context with `getChildContext()`.
+
+Function components follow the same diffing path. If one of them marks itself dirty during render, Preact runs it again so the final tree stays in sync. `setState()` and `forceUpdate()` schedule rerenders through a queue, and Preact drains that queue in order so related updates stay consistent.
+
+The diff stage also reconciles children, places or moves DOM nodes, and collects refs for later. `componentDidMount()`, `componentDidUpdate()`, refs, and queued render callbacks all flush in `commitRoot()` after reconciliation finishes.
+
+The component example below shows the same pattern in a small subtree:
 
 ```js
 import { render, h } from 'preact';
