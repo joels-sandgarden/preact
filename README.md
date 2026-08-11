@@ -103,6 +103,22 @@ render(<App />, document.body);
 
 ---
 
+## Render module reference
+
+`src/render.js` exports `render()` and `hydrate()`, the functions that turn a vnode tree into DOM and handle hydration against existing markup.
+
+### `render()`
+
+- Normalizes `document` parents to `document.documentElement`
+- Invokes the optional root hook before diffing starts
+- Reuses `parentDom._children` to locate the previous vnode tree
+- Wraps the incoming vnode in a `Fragment`, calls `diff()`, and flushes queued commits with `commitRoot()`
+
+### `hydrate()`
+
+- Marks the vnode with `MODE_HYDRATE`
+- Delegates to `render()` so hydration uses the same reconciliation pipeline
+
 ## Sponsors
 
 Become a sponsor and get your logo on our README on GitHub with a link to your site. [[Become a sponsor](https://opencollective.com/preact#sponsor)]
