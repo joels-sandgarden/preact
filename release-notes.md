@@ -14,3 +14,11 @@ This release candidate focuses on smaller distributed files, more efficient rend
 * Refined hydration handling for excess markers, simplified reference application after rendering, and made guarded checks more consistent.
 
 ## Fixes and improvements
+* Restored reliable property mapping in Preact ISO builds so minified runtime access works as intended.
+* Deferred passive effect cleanup during unmount to match the intended v11 timing.
+* Preserved constructor metadata when cloning VNodes, improving behavior in hardened JavaScript and frozen intrinsics environments.
+* Tightened compatibility element validation to reject boxed React element symbols.
+
+## Upgrade context
+
+No breaking changes are included in this release candidate. The smaller outputs, rendering updates, hydration handling, and compatibility fixes apply when adopting version `11.0.0-rc.0`.
