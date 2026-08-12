@@ -6,3 +6,6 @@ This release candidate reduces compressed and bundled output size while improvin
 
 * Reduced compressed and bundled output size through updated minification settings.
 * Restored compact naming for the Preact ISO target to preserve its smaller output.
+* Improved keyed reorder diff passes to reduce processing overhead.
+* Refined the search used during keyed reordering to improve update correctness.
+* Simplified insertion and unmount processing for more consistent updates.
