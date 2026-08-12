@@ -17,3 +17,7 @@ This release candidate reduces compressed and bundled output sizes while improvi
 ## Bug Fixes
 
 * Corrected vnode cloning to retain the constructor, preventing runtime errors in hardened JavaScript environments.
+* Deferred passive effect cleanup during unmount so cleanup runs at the intended stage of component removal.
+* Restored `_bits` property mangling for the Preact ISO target to preserve compact generated output.
+* Rejected boxed React element symbols during compatibility validation so invalid element values fail consistently.
+* Streamlined insertion and unmount processing to reduce unnecessary work during rendering updates.
