@@ -25,3 +25,7 @@ This release delivers smaller minified build artifacts, more efficient keyed reo
 * **Deferred** passive effect cleanup during unmount to match the intended v11 timing.
 * **Strengthened** element cloning in hardened JavaScript and frozen intrinsic environments by preserving required object metadata.
 * **Corrected** compatibility validation to reject boxed React element symbols instead of accepting them as valid elements.
+
+## Additional changes
+
+* **Updated** package and development tooling version identifiers to `11.0.0-rc.0`.
