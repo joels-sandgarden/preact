@@ -18,6 +18,7 @@ This release candidate rolls up bundle size, diffing, hydration, hooks, and comp
 ## Bug Fixes
 
 * Corrected hydration handling for excess markers and improved ref application during diffing.
+* Strengthened compatibility validation by rejecting boxed React element symbols as invalid elements.
 
 ## Breaking Changes
 
