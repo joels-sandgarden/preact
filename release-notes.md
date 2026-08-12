@@ -18,3 +18,10 @@ This release delivers smaller minified build artifacts, more efficient keyed reo
 * **Improved** hydration handling for excess markers so additional markers no longer disrupt reconciliation.
 * **Simplified** ref application during root updates for more consistent rendered references.
 * **Streamlined** guarded rendering checks to improve correctness in edge cases.
+
+## Compatibility
+
+* **Restored** the expected minified property mapping for the Preact ISO build so its internal bit field remains accessible.
+* **Deferred** passive effect cleanup during unmount to match the intended v11 timing.
+* **Strengthened** element cloning in hardened JavaScript and frozen intrinsic environments by preserving required object metadata.
+* **Corrected** compatibility validation to reject boxed React element symbols instead of accepting them as valid elements.
