@@ -10,14 +10,14 @@ Preact v11.0.0-rc.0 reduces minified build sizes, lowers overhead in keyed reord
 
 ## Performance
 
-* Reduced compressed core size for smaller minified build artifacts.
-* Trimmed expressions across the compatibility, hooks, and JSX runtime packages to further reduce minified output.
-* Streamlined keyed reorder processing to lower diffing overhead.
+* Reduced minified core artifacts to make builds smaller.
+* Trimmed compatibility, hooks, and JSX runtime output to further reduce minified artifacts.
+* Streamlined list reordering to lower diffing overhead.
 
 ## Correctness and Compatibility
 
-* Improved diffing and hydration behavior by handling excess markers, applying refs more simply, and guarding checks consistently.
-* Restored the correct `_bits` mapping for Preact ISO builds.
-* Deferred passive effect cleanup on unmount to the intended v11 timing.
-* Preserved constructor fields during VNode cloning to reduce errors in hardened JavaScript environments.
-* Strengthened compatibility validation by rejecting boxed React element symbols.
+* Improved diffing and hydration behavior by handling unexpected markers, applying refs consistently, and protecting runtime checks.
+* Restored correct internal property mapping for Preact ISO builds.
+* Deferred cleanup for passive effects during unmount to the intended v11 timing.
+* Preserved constructor fields while cloning virtual nodes to reduce errors in hardened JavaScript environments.
+* Strengthened compatibility validation by rejecting wrapped React element symbols.
