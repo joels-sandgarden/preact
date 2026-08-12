@@ -6,14 +6,14 @@
 
 ## Summary
 
-This release candidate delivers smaller compressed builds, more efficient keyed updates, and improved rendering correctness. It also updates the package version and DevTools attachment for `11.0.0-rc.0`.
+This release candidate ships smaller compressed builds, faster keyed updates, and more reliable rendering. The package version and DevTools attachment now identify `11.0.0-rc.0`.
 
 ## Improvements
 
-* Reduced compressed and bundled output sizes through more efficient minification across Preact, hooks, JSX runtime, and compatibility builds.
-* Improved keyed list reordering with more efficient diffing and bounded longest increasing subsequence calculations.
-* Corrected hydration and rendering edge cases so excess hydration markers, references, and guarded updates behave more reliably.
-* Restored `_bits` property mangling for the Preact ISO target so minified builds access the expected internal field.
-* Deferred passive effect cleanup during unmount to align cleanup timing with the v11 behavior.
-* Hardened VNode cloning compatibility for frozen or otherwise restricted JavaScript environments by preserving the VNode constructor during clones.
-* Fixed compatibility element validation for boxed React element symbols so invalid element values are rejected consistently.
+* Reduced compressed and bundled output sizes with smaller minified code across Preact, hooks, JSX runtime, and compatibility builds.
+* Improved keyed list reordering with lower diffing overhead while preserving the bounded LIS optimization.
+* Corrected hydration and rendering edge cases so excess hydration markers, references, and guarded updates behave reliably.
+* Restored `_bits` mangling for the Preact ISO target so minified builds read the expected internal field.
+* Deferred passive effect cleanup during unmount to match the intended v11 behavior.
+* Hardened VNode cloning for frozen or restricted JavaScript environments by retaining the VNode constructor in each clone.
+* Fixed compatibility validation so boxed React element symbols are rejected consistently.
