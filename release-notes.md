@@ -22,4 +22,4 @@ This release candidate provides smaller distributed files, faster rendering upda
 ## Upgrade context
 
 This release candidate introduces no breaking changes. Adopting version `11.0.0-rc.0` provides smaller outputs, rendering updates, improved server rendered content handling, and compatibility fixes.
-See [PR #5](https://github.com/joels-sandgarden/preact/pull/5) for release details.
+See [PR #5](https://github.com/joels-sandgarden/preact/pull/5) for details about this release candidate.
