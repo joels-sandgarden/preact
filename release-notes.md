@@ -6,11 +6,11 @@ This release candidate delivers smaller compressed bundles, more efficient updat
 
 ## Highlights
 
-* Reduced the compressed core bundle size by shortening protected and private property names and simplifying expressions across the compatibility, hooks, and JSX runtime packages.
-* Improved keyed content reordering by refining the lookup process used to place existing content efficiently.
-* Improved hydration handling for excess markers so the client can reconcile server rendered content more reliably.
-* Refined guarded rendering checks and ref application for more consistent updates.
-* Restored `_bits` name compression for Preact ISO builds while preserving the runtime access those builds expect.
+* Reduced the compressed core bundle size by shortening internal property names and simplifying expressions across the compatibility, hooks, and JSX runtime packages.
+* Enhanced list updates after items change order by refining how existing items find their new positions.
+* Strengthened server rendered content reconciliation by handling extra markers more reliably.
+* Refined conditional rendering checks and reference updates for more consistent results.
+* Restored `_bits` compression for Preact ISO builds while preserving the runtime access those builds expect.
 * Deferred passive effect cleanup during unmount to preserve expected cleanup timing.
 
 ## Fixes
