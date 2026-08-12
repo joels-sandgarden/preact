@@ -9,7 +9,7 @@ This release candidate rolls up bundle size, diffing, hydration, hooks, and comp
 ## Additional Changes
 
 * Updated version metadata and the devtools attachment to `11.0.0-rc.0`.
-* Reduced compressed and bundled output through updated name mangling and expression level reductions.
+* Reduced compressed and bundled output through `mangle.json` updates and expression level reductions.
 * Optimized keyed reorder diffing while preserving bounded longest increasing subsequence (LIS) behavior, lowering diff overhead for reordered children.
 * Restored `_bits` name mangling for the Preact ISO target, correcting its internal property mapping.
 * Deferred passive effect cleanup on unmount to align with v11 timing.
@@ -18,7 +18,7 @@ This release candidate rolls up bundle size, diffing, hydration, hooks, and comp
 ## Bug Fixes
 
 * Corrected hydration handling for excess markers and improved ref application during diffing.
-* Strengthened compatibility validation by rejecting boxed React element symbols as invalid elements.
+* Strengthened compatibility validation with an edge case that rejects boxed React element symbols as invalid elements.
 
 ## Breaking Changes
 
