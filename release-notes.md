@@ -6,25 +6,25 @@
 
 ## Summary
 
-This release candidate makes Preact distributions smaller and keeps rendering, hydration, and component cleanup behavior more reliable. It also strengthens compatibility checks and version alignment.
+This release candidate makes rendering, existing markup handling, and component cleanup more reliable. It also strengthens compatibility checks and keeps release information aligned.
 
 ## Enhancements
 
-* Improved list updates so items keep the correct positions when lists with stable identifiers change.
-* Enhanced hydration so extra markers do not interfere with rendered content.
+* Improved list updates so items keep the correct positions when lists change.
+* Enhanced rendering with existing markup so extra markers do not interfere with rendered content.
 * Refined element reference handling and runtime safeguards so rendering updates behave consistently.
 
 ## Bug Fixes
 
-* Corrected virtual node cloning to retain its constructor, preventing runtime errors in hardened JavaScript environments.
-* Deferred passive effect cleanup during component removal so cleanup runs at the intended stage.
-* Restored compact `_bits` naming for Preact ISO builds to preserve smaller generated output.
+* Corrected cloned virtual elements to retain constructor information, preventing runtime errors in hardened JavaScript environments.
+* Deferred cleanup for passive effects during component removal so cleanup runs at the intended stage.
+* Restored compact property naming for Preact ISO builds to preserve smaller generated output.
 * Rejected React element symbols wrapped in objects during compatibility validation, so invalid values fail consistently.
 * Streamlined insertion and component removal so rendering updates do less unnecessary work.
 
 ## Performance
 
-* Reduced minified core and bundled artifact sizes, making Preact distributions more compact.
+* Reduced compressed core and bundled artifact sizes, making Preact distributions more compact.
 
 ## Additional Changes
 
