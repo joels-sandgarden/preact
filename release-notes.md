@@ -21,3 +21,9 @@ Version `11.0.0-rc.0` makes the v11 release candidate available with smaller com
 * Hardened compatibility by rejecting boxed React element symbols and strengthening virtual node cloning behavior.
 
 * Minimized expressions in the JSX runtime and compatibility layers to reduce generated output size.
+
+* Removed the internal `_contextRef` tracking and simplified subscriber cleanup for context updates.
+
+* Simplified style clearing and listener initialization to reduce update overhead.
+
+* Eliminated obsolete `_contextRef` declarations from internal type definitions to keep the context model consistent.
