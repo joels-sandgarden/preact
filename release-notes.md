@@ -21,3 +21,11 @@ This release candidate reduces compressed and bundled output sizes while improvi
 * Restored `_bits` property mangling for the Preact ISO target to preserve compact generated output.
 * Rejected boxed React element symbols during compatibility validation so invalid element values fail consistently.
 * Streamlined insertion and unmount processing to reduce unnecessary work during rendering updates.
+
+## Performance
+
+* Reduced minified core and bundled artifact sizes for more compact Preact distributions.
+
+## Additional Changes
+
+* Updated package metadata and the developer tools integration to identify version `11.0.0-rc.0` consistently.
