@@ -14,16 +14,16 @@ Version `11.0.0-rc.0` makes the v11 release candidate available with smaller com
 
 * Improved streamed hydration when extra markers appear, along with portal updates, reference commits, virtual node copying, and frequently used update paths.
 
-* Refined state cloning and DOM sibling and insertion bookkeeping to improve component updates.
+* Refined component state copying and tracking for neighboring elements and insertions to improve component updates.
 
-* Adjusted pending effect argument commits and related frequently used paths for more consistent hook behavior.
+* Adjusted how pending hook effects apply their arguments and optimized related frequently used paths for more consistent hook behavior.
 
-* Hardened compatibility by rejecting boxed React element symbols and strengthening virtual node cloning behavior.
+* Hardened compatibility in strict JavaScript environments by rejecting boxed React element symbols and making virtual node copying more reliable.
 
-* Minimized expressions in the JSX runtime and compatibility layers to reduce generated output size.
+* Minimized expressions in the JSX runtime and compatibility layers, reducing generated output size.
 
-* Removed the internal `_contextRef` tracking and simplified subscriber cleanup for context updates.
+* Removed the internal `_contextRef` reference and simplified subscriber cleanup for context updates.
 
-* Simplified style clearing and listener initialization to reduce update overhead.
+* Simplified style reset and event listener setup to reduce update overhead.
 
-* Eliminated obsolete `_contextRef` declarations from internal type definitions to keep the context model consistent.
+* Eliminated obsolete `_contextRef` declarations from internal type definitions so declared context behavior matches runtime behavior.
