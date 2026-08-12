@@ -1,4 +1,4 @@
- # v11.0.0-rc.0: Bundle Size Reductions and Diffing Improvements
+# v11.0.0-rc.0: Reduce Bundle Size and Improve Diffing
 
 This release candidate reduces compressed and bundled output size while improving keyed reordering, hydration, compatibility, and unmount behavior. It does not introduce breaking changes.
 
@@ -13,11 +13,11 @@ This release candidate reduces compressed and bundled output size while improvin
 ## Bug Fixes
 
 * Corrected hydration handling when the rendered output contains excess markers.
-* Fixed vnode cloning in hardened JavaScript environments by retaining the constructor.
+* Fixed element cloning in hardened JavaScript environments by retaining the constructor.
 * Adjusted passive effect cleanup to run at the correct time during unmounting.
-* Streamlined ref application and guarded diff checks to improve update reliability.
-* Enhanced compatibility validation for boxed React element symbols.
+* Streamlined reference application and protected diff checks to improve update reliability.
+* Enhanced compatibility validation for React elements that use boxed symbols.
 
 ## Additional Changes
 
-* Updated package metadata and the development tools integration to report version `11.0.0-rc.0`.
+* Updated `package.json`, `package-lock.json`, and the development tools attachment to report version `11.0.0-rc.0`.
