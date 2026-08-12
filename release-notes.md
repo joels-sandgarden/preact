@@ -6,25 +6,25 @@
 
 ## Summary
 
-This release delivers smaller minified build artifacts, more efficient keyed reordering, improved diffing and hydration behavior, and stronger compatibility in hardened JavaScript environments. It also aligns passive effect cleanup timing with v11 behavior and includes no breaking changes.
+This release delivers smaller compressed build artifacts, more efficient keyed list reordering, more reliable handling of server rendered content, and stronger compatibility in JavaScript environments that restrict built-in objects. It also aligns cleanup after rendering with v11 behavior and includes no breaking changes.
 
 ## Performance
 
-* **Reduced** minified build artifact size by refining protected and private name compression and simplifying expressions across compatibility, hooks, and JSX runtime packages.
-* **Lowered** overhead during keyed reorder diff passes by reusing child collections locally and refining sequence lookup behavior.
+* **Reduced** compressed build artifact size by shortening internal names and simplifying expressions across compatibility, hooks, and JSX runtime packages.
+* **Lowered** overhead during keyed list reordering by reusing existing child data and refining the ordering process.
 
 ## Rendering and hydration
 
-* **Improved** hydration handling for excess markers so additional markers no longer disrupt reconciliation.
-* **Simplified** ref application during root updates for more consistent rendered references.
-* **Streamlined** guarded rendering checks to improve correctness in edge cases.
+* **Improved** handling of extra markers while attaching server rendered content so they no longer disrupt updates.
+* **Simplified** element reference application during root updates for more consistent rendered references.
+* **Streamlined** rendering checks to improve correctness in edge cases.
 
 ## Compatibility
 
-* **Restored** the expected minified property mapping for the Preact ISO build so its internal bit field remains accessible.
-* **Deferred** passive effect cleanup during unmount to match the intended v11 timing.
-* **Strengthened** element cloning in hardened JavaScript and frozen intrinsic environments by preserving required object metadata.
-* **Corrected** compatibility validation to reject boxed React element symbols instead of accepting them as valid elements.
+* **Restored** the expected compressed property mapping for Preact ISO builds so the expected internal field remains accessible.
+* **Deferred** cleanup after rendering during unmount to match the intended v11 timing.
+* **Strengthened** element copying in JavaScript environments that freeze built-in objects by preserving required object metadata.
+* **Corrected** compatibility validation to reject React element symbols wrapped in objects instead of accepting them as valid elements.
 
 ## Additional changes
 
