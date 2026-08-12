@@ -12,3 +12,9 @@ This release delivers smaller minified build artifacts, more efficient keyed reo
 
 * **Reduced** minified build artifact size by refining protected and private name compression and simplifying expressions across compatibility, hooks, and JSX runtime packages.
 * **Lowered** overhead during keyed reorder diff passes by reusing child collections locally and refining sequence lookup behavior.
+
+## Rendering and hydration
+
+* **Improved** hydration handling for excess markers so additional markers no longer disrupt reconciliation.
+* **Simplified** ref application during root updates for more consistent rendered references.
+* **Streamlined** guarded rendering checks to improve correctness in edge cases.
