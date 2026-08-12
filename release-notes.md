@@ -13,3 +13,5 @@ This release candidate delivers smaller compressed builds, more efficient keyed 
 * Reduced compressed and bundled output sizes through more efficient minification across Preact, hooks, JSX runtime, and compatibility builds.
 * Improved keyed list reordering with more efficient diffing and bounded longest increasing subsequence calculations.
 * Corrected hydration and rendering edge cases so excess hydration markers, references, and guarded updates behave more reliably.
+* Restored `_bits` property mangling for the Preact ISO target so minified builds access the expected internal field.
+* Deferred passive effect cleanup during unmount to align cleanup timing with the v11 behavior.
