@@ -15,8 +15,8 @@ This release candidate delivers smaller compressed bundles, more efficient updat
 
 ## Fixes
 
-* Fixed vnode cloning in hardened JavaScript and frozen intrinsics environments by retaining the constructor field.
-* Corrected compatibility validation so boxed React element symbols are rejected.
+* Fixed element cloning in hardened JavaScript environments and environments with frozen built in objects by retaining constructor information.
+* Corrected compatibility validation so it rejects boxed React element symbols.
 
 ## Release Metadata
 
@@ -24,4 +24,4 @@ This release candidate delivers smaller compressed bundles, more efficient updat
 
 ## Compatibility
 
-No breaking changes were identified for this release candidate.
+This release candidate introduces no identified breaking changes.
