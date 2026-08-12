@@ -15,3 +15,5 @@ This release candidate delivers smaller compressed builds, more efficient keyed 
 * Corrected hydration and rendering edge cases so excess hydration markers, references, and guarded updates behave more reliably.
 * Restored `_bits` property mangling for the Preact ISO target so minified builds access the expected internal field.
 * Deferred passive effect cleanup during unmount to align cleanup timing with the v11 behavior.
+* Hardened VNode cloning compatibility for frozen or otherwise restricted JavaScript environments by preserving the VNode constructor during clones.
+* Fixed compatibility element validation for boxed React element symbols so invalid element values are rejected consistently.
