@@ -22,4 +22,4 @@ This release candidate rolls up bundle size, diffing, hydration, hooks, and comp
 
 ## Breaking Changes
 
-* Confirmed that no breaking changes were identified for this release candidate.
+* Confirmed that this release candidate introduces no breaking changes.
