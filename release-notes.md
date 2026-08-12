@@ -1,4 +1,4 @@
-# v11.0.0-rc.0: Bundle Size Reductions and Diffing Improvements
+# v11.0.0-rc.0: Reduce Bundle Size and Improve Diffing
 
 **Date:** 2026-08-12
 
