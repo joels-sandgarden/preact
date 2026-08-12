@@ -15,3 +15,9 @@ This release candidate reduces compressed and bundled output size while improvin
 * Corrected hydration handling when the rendered output contains excess markers.
 * Fixed vnode cloning in hardened JavaScript environments by retaining the constructor.
 * Adjusted passive effect cleanup to run at the correct time during unmounting.
+* Streamlined ref application and guarded diff checks to improve update reliability.
+* Enhanced compatibility validation for boxed React element symbols.
+
+## Additional Changes
+
+* Updated package metadata and the development tools integration to report version `11.0.0-rc.0`.
