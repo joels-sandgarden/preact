@@ -21,3 +21,7 @@ Preact v11.0.0-rc.0 reduces minified build sizes, lowers overhead in keyed reord
 * Deferred cleanup for passive effects during unmount to the intended v11 timing.
 * Preserved constructor fields while cloning virtual nodes to reduce errors in hardened JavaScript environments.
 * Strengthened compatibility validation by rejecting wrapped React element symbols.
+
+## Additional Changes
+
+* Updated release metadata across packages and developer tools to identify version `11.0.0-rc.0`.
