@@ -4,21 +4,21 @@
 
 **Version:** `11.0.0-rc.0`
 
-This release candidate focuses on smaller distributed files, more efficient rendering updates, and compatibility improvements across Preact and its related packages.
+This release candidate delivers smaller distributed files, more efficient rendering updates, and broader compatibility across Preact and its related packages.
 
 ## Highlights
 
 * Updated package metadata and the developer tools attachment to identify version `11.0.0-rc.0`.
-* Reduced minified bundle and core compressed sizes through smaller expressions and more effective private property naming.
-* Improved keyed component reordering to reduce overhead while preserving the bounded longest increasing subsequence optimization.
-* Refined hydration handling for excess markers, simplified reference application after rendering, and made guarded checks more consistent.
+* Reduced minified bundle and core compressed sizes with smaller expressions and more effective property naming.
+* Improved keyed component reordering to reduce rendering overhead while preserving optimized searches for bounded reorder cases.
+* Refined server rendered content marker handling, simplified reference application after rendering, and made safety checks more consistent.
 
 ## Fixes and improvements
-* Restored reliable property mapping in Preact ISO builds so minified runtime access works as intended.
-* Deferred passive effect cleanup during unmount to match the intended v11 timing.
-* Preserved constructor metadata when cloning VNodes, improving behavior in hardened JavaScript and frozen intrinsics environments.
-* Tightened compatibility element validation to reject boxed React element symbols.
+* Restored reliable internal naming in Preact ISO builds so minified runtime access works as intended.
+* Adjusted unmount timing so passive effects clean up according to intended v11 behavior.
+* Preserved constructor metadata when copying virtual nodes, improving behavior in hardened JavaScript and frozen intrinsics environments.
+* Tightened compatibility element validation to reject React elements that use boxed symbols.
 
 ## Upgrade context
 
-No breaking changes are included in this release candidate. The smaller outputs, rendering updates, hydration handling, and compatibility fixes apply when adopting version `11.0.0-rc.0`.
+This release candidate introduces no breaking changes. Smaller outputs, rendering updates, server rendered content handling, and compatibility fixes apply when adopting version `11.0.0-rc.0`.
