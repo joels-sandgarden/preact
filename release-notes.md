@@ -14,3 +14,7 @@ This release focuses on smaller distributable output, keyed reorder diffing refi
 
 ## Bug Fixes
 * Enhanced hydration excess-marker handling in `src/diff/index.js` and streamlined related diffing checks for server-rendered updates.
+* Restored `_bits` mangling for the Preact ISO build target so minified builds keep the expected internal field mapping.
+* Deferred passive-effect cleanup on unmount to align effect teardown with the intended lifecycle timing.
+* Preserved constructor fields when cloning VNodes so hardened JavaScript and frozen-intrinsics environments can clone components without failure.
+* Fixed compat validation so boxed React element symbols no longer pass as valid elements.
