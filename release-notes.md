@@ -9,3 +9,9 @@ This release candidate reduces compressed and bundled output size while improvin
 * Improved keyed reorder diff passes to reduce processing overhead.
 * Refined the search used during keyed reordering to improve update correctness.
 * Simplified insertion and unmount processing for more consistent updates.
+
+## Bug Fixes
+
+* Corrected hydration handling when the rendered output contains excess markers.
+* Fixed vnode cloning in hardened JavaScript environments by retaining the constructor.
+* Adjusted passive effect cleanup to run at the correct time during unmounting.
