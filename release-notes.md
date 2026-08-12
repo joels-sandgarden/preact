@@ -1,4 +1,4 @@
-# v11.0.0-rc.0: Bundle size reductions and diffing improvements
+# v11.0.0-rc.0: Reduce bundle sizes and improve diffing
 
 ## Version
 
@@ -6,26 +6,26 @@
 
 ## Summary
 
-This release candidate reduces compressed and bundled output sizes while improving rendering, hydration, and keyed list updates. It also strengthens vnode compatibility and adjusts effect cleanup behavior for more reliable runtime operation.
+This release candidate makes Preact distributions smaller and keeps rendering, hydration, and component cleanup behavior more reliable. It also strengthens compatibility checks and version alignment.
 
 ## Enhancements
 
-* Improved rendering updates so keyed lists reorder more efficiently and preserve correct item placement.
-* Enhanced hydration handling so excess markers no longer interfere with the resulting rendered tree.
-* Refined ref application and guarded runtime checks to make rendering updates more consistent.
+* Improved list updates so items keep the correct positions when lists with stable identifiers change.
+* Enhanced hydration so extra markers do not interfere with rendered content.
+* Refined element reference handling and runtime safeguards so rendering updates behave consistently.
 
 ## Bug Fixes
 
-* Corrected vnode cloning to retain the constructor, preventing runtime errors in hardened JavaScript environments.
-* Deferred passive effect cleanup during unmount so cleanup runs at the intended stage of component removal.
-* Restored `_bits` property mangling for the Preact ISO target to preserve compact generated output.
-* Rejected boxed React element symbols during compatibility validation so invalid element values fail consistently.
-* Streamlined insertion and unmount processing to reduce unnecessary work during rendering updates.
+* Corrected virtual node cloning to retain its constructor, preventing runtime errors in hardened JavaScript environments.
+* Deferred passive effect cleanup during component removal so cleanup runs at the intended stage.
+* Restored compact `_bits` naming for Preact ISO builds to preserve smaller generated output.
+* Rejected React element symbols wrapped in objects during compatibility validation, so invalid values fail consistently.
+* Streamlined insertion and component removal so rendering updates do less unnecessary work.
 
 ## Performance
 
-* Reduced minified core and bundled artifact sizes for more compact Preact distributions.
+* Reduced minified core and bundled artifact sizes, making Preact distributions more compact.
 
 ## Additional Changes
 
-* Updated package metadata and the developer tools integration to identify version `11.0.0-rc.0` consistently.
+* Updated package metadata and the developer tools integration to report version `11.0.0-rc.0` consistently.
