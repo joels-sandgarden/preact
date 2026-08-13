@@ -45,6 +45,19 @@ You can find some awesome libraries in the [awesome-preact list](https://github.
 
 ---
 
+## Performance and compatibility
+
+The v11.0.0-rc.0 line refines performance and runtime compatibility across common rendering environments:
+
+- Minified distributions are smaller, helping applications reduce download size while retaining Preact's compact footprint.
+- Keyed list updates use fewer DOM changes during reordering, and hydration handles streamed content markers and refs more reliably.
+- Minified Preact ISO builds remain reliable at runtime.
+- Passive hook effect cleanup is deferred during unmount.
+- Virtual node cloning remains compatible with hardened JavaScript and frozen intrinsics environments, including state changes and forced rerenders.
+- `preact/compat` rejects boxed React element symbols, helping catch malformed React compatible element values.
+
+These improvements are available in the v11.0.0-rc.0 line, with no reported breaking changes.
+
 ## Getting Started
 
 > 💁 _**Note:** You [don't need ES2015 to use Preact](https://github.com/developit/preact-in-es3)... but give it a try!_
