@@ -10,13 +10,13 @@ This release reduces generated output sizes and improves how Preact updates keye
 
 ## Performance
 
-* Reduced compressed and bundled output sizes across the core, compat, hooks, and JSX runtime packages by shortening repeated names and simplifying generated code.
+* Reduced compressed and bundled output sizes across the core, compat, hooks, and JSX runtime packages by shortening repeated property names and simplifying generated expressions.
 
 * Restored `_bits` compression for Preact ISO builds, reducing their generated output size.
 
 ## Enhancements
 
-* Improved keyed list reordering by matching moved items more efficiently, reducing unnecessary updates when items change position.
+* Improved keyed list reordering by reusing item data and refining sequence lookup, reducing unnecessary updates when items change position.
 
 * Refined hydration and root updates so references behave consistently while Preact commits rendered content.
 
