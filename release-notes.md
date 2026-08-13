@@ -15,3 +15,9 @@ This release candidate reduces production bundle size and improves update handli
 ## Performance
 
 * Reduced compressed and bundled core size through smaller production output across the compatibility, hooks, and JSX runtime packages.
+
+## Rendering
+
+* Improved keyed list reordering so updates preserve efficient item matching when order changes.
+* Refined hydration to handle excess markers consistently.
+* Simplified reference application during committed updates and strengthened guarded checks.
