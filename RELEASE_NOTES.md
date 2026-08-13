@@ -30,4 +30,4 @@ This release reduces generated output sizes and improves how Preact updates keye
 
 * Strengthened compatibility validation so boxed React element symbols no longer pass as valid React elements.
 
-* Acknowledged joel-solymosi for making a first contribution to Preact.
+* Acknowledged joel-solymosi's first contribution to Preact.
