@@ -52,11 +52,11 @@ The v11.0.0-rc.0 line refines performance and runtime compatibility across commo
 - Minified distributions are smaller, helping applications reduce download size while retaining Preact's compact footprint.
 - Keyed list updates use fewer DOM changes during reordering, and hydration handles streamed content markers and refs more reliably.
 - Minified Preact ISO builds remain reliable at runtime.
-- Passive hook effect cleanup is deferred during unmount.
-- Virtual node cloning remains compatible with hardened JavaScript and frozen intrinsics environments, including state changes and forced rerenders.
-- `preact/compat` rejects boxed React element symbols, helping catch malformed React compatible element values.
+- Preact defers passive hook effect cleanup during unmount.
+- Virtual node cloning remains compatible with hardened JavaScript environments and environments with frozen built-ins, including state changes and forced rerenders.
+- `preact/compat` rejects boxed React element symbols, helping catch malformed React-compatible element values.
 
-These improvements are available in the v11.0.0-rc.0 line, with no reported breaking changes.
+The v11.0.0-rc.0 line provides these improvements, with no reported breaking changes.
 
 ## Getting Started
 
