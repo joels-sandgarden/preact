@@ -56,7 +56,7 @@ The v11.0.0-rc.0 line refines performance and runtime compatibility across commo
 - Virtual node cloning remains compatible with hardened JavaScript environments and environments with frozen built-ins, including state changes and forced rerenders.
 - `preact/compat` rejects boxed React element symbols, helping catch malformed React-compatible element values.
 
-The v11.0.0-rc.0 line provides these improvements, with no reported breaking changes.
+ The line adds these improvements without reported breaking changes.
 
 ## Getting Started
 
