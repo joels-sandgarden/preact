@@ -10,7 +10,7 @@ This release candidate reduces production bundle size and improves how the libra
 
 ## Additional Changes
 
-* Added the `v11.0.0-rc.0` release candidate with synchronized package and DevTools version identifiers.
+* Added synchronized package and DevTools version identifiers for the `v11.0.0-rc.0` release candidate.
 
 ## Performance
 
@@ -20,7 +20,7 @@ This release candidate reduces production bundle size and improves how the libra
 
 * Improved reordered list updates so the library preserves efficient item matching when order changes.
 * Refined server-rendered content handling to ignore extra markers consistently.
-* Simplified reference application during updates and strengthened safety checks.
+* Simplified how updates apply references and strengthened safety checks.
 
 ## Compatibility
 
