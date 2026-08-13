@@ -6,7 +6,7 @@
 
 ## Summary
 
-This release candidate reduces production bundle size and improves update handling for reordered content, hydration, lifecycle cleanup, and compatibility with hardened JavaScript environments.
+This release candidate reduces production bundle size and improves how the library updates reordered content, server-rendered content, component removal, and compatibility with hardened JavaScript environments.
 
 ## Additional Changes
 
@@ -18,13 +18,13 @@ This release candidate reduces production bundle size and improves update handli
 
 ## Rendering
 
-* Improved keyed list reordering so updates preserve efficient item matching when order changes.
-* Refined hydration to handle excess markers consistently.
-* Simplified reference application during committed updates and strengthened guarded checks.
+* Improved reordered list updates so the library preserves efficient item matching when order changes.
+* Refined server-rendered content handling to ignore extra markers consistently.
+* Simplified reference application during updates and strengthened safety checks.
 
 ## Compatibility
 
-* Restored the expected internal field mapping for Preact ISO builds to preserve target compatibility.
-* Deferred passive effect cleanup during unmount until the appropriate lifecycle phase.
-* Fixed virtual node cloning in environments that freeze built-in JavaScript objects by retaining constructor information.
-* Strengthened compatibility validation by rejecting boxed React element symbols.
+* Restored the expected field mapping for Preact ISO builds to preserve target compatibility.
+* Deferred cleanup for effects that run outside rendering during component removal until the appropriate lifecycle phase.
+* Fixed component node cloning in environments that freeze built-in JavaScript objects by retaining constructor information.
+* Strengthened compatibility validation by rejecting wrapped React element symbols.
