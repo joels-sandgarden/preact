@@ -10,19 +10,19 @@ This release reduces generated output sizes and improves how Preact updates keye
 
 ## Performance
 
-* Reduced compressed and bundled output sizes across the core, compat, hooks, and JSX runtime packages by aliasing repeated properties and simplifying generated expressions.
+* Reduced compressed and bundled output sizes across the core, compat, hooks, and JSX runtime packages by shortening repeated names and simplifying generated code.
 
-* Restored `_bits` name compression for Preact ISO builds, reducing their generated output size.
+* Restored `_bits` compression for Preact ISO builds, reducing their generated output size.
 
 ## Enhancements
 
-* Improved keyed list reordering with more efficient sequence matching, reducing unnecessary work when items change position.
+* Improved keyed list reordering by matching moved items more efficiently, reducing unnecessary updates when items change position.
 
-* Refined hydration and root updates so references receive consistent handling while rendered content is committed.
+* Refined hydration and root updates so references behave consistently while Preact commits rendered content.
 
 ## Bug Fixes
 
-* Deferred passive effect cleanup until after unmount processing completes, preserving expected cleanup timing for hooks.
+* Deferred cleanup for passive effects until after unmount processing completes, preserving expected timing for hooks.
 
 * Preserved virtual node constructors when cloning nodes in hardened environments, including environments with frozen built-ins.
 
