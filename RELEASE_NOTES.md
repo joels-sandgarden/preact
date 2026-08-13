@@ -18,7 +18,7 @@ This release reduces generated output sizes and improves how Preact updates keye
 
 * Improved keyed list reordering by reusing item data and refining sequence lookup, reducing unnecessary updates when items change position.
 
-* Refined hydration and root updates so references behave consistently while Preact commits rendered content.
+* Improved hydration to handle excess markers more reliably and made refs behave consistently while Preact commits rendered content.
 
 ## Bug Fixes
 
