@@ -50,7 +50,7 @@ You can find some awesome libraries in the [awesome-preact list](https://github.
 The v11.0.0-rc.0 line refines performance and runtime compatibility across common rendering environments:
 
 - Minified distributions are smaller, helping applications reduce download size while retaining Preact's compact footprint.
-- Keyed list reordering is more efficient, and hydration more reliably handles excess markers and refs.
+- Keyed list reordering is more efficient, and hydration handles excess markers and refs more reliably.
 - Minified Preact ISO builds remain reliable at runtime.
 - Preact defers passive hook effect cleanup during unmount.
 - Virtual node cloning remains compatible with hardened JavaScript environments and environments with frozen built-ins, including state changes and forced rerenders.
