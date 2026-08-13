@@ -9,3 +9,4 @@
 - Deferred passive effect cleanup until unmount in the hooks implementation.
 - Preserved VNode constructors when cloning VNodes for hardened and frozen intrinsics environments.
 - Rejected boxed React element symbols during compat validation.
+- No breaking changes were reported.
