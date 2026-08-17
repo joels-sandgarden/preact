@@ -1,0 +1,10 @@
+ # v11.0.0-rc.0
+
+The v11.0.0-rc.0 release candidate delivers smaller build artifacts and more reliable rendering, hydration, effects, and compatibility behavior.
+
+## Improvements and fixes
+
+* Reduced the compressed core bundle size while preserving efficient lookup for keyed list updates.
+* Trimmed additional bundle size from the release candidate's build artifacts.
+* Improved keyed list reordering to reduce the work required during diffing.
+* Corrected hydration handling for excess markers to improve server-rendered UI updates.
