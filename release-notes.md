@@ -11,3 +11,6 @@ The v11.0.0-rc.0 release candidate delivers smaller build artifacts and more rel
 * Refined commit and ref processing to make UI updates more reliable.
 * Deferred passive effect cleanup to the intended v11 timing.
 * Strengthened vnode cloning compatibility in hardened JavaScript environments.
+* Restored the `_bits` property mangle for the Preact ISO target so its internal property mapping remains correct.
+* Updated package metadata and the devtools attachment to v11.0.0-rc.0.
+* Enhanced compatibility validation for React elements that use boxed symbols.
