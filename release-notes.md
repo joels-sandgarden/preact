@@ -4,26 +4,26 @@ Date: 2026-08-12
 
 Version: `v11.0.0-rc.0`
 
-This release candidate reduces output size and improves rendering, hydration, compatibility, and effect cleanup behavior across Preact.
+This release candidate makes Preact smaller and improves how it updates page content, works with existing markup, handles integrations, and cleans up effects.
 
 ## Bundle Size
 
-* Reduced the compressed size of the Preact core while preserving efficient lookup during list reordering.
-* Decreased bundled output across core rendering, compatibility, hooks, and JSX runtime packages through targeted simplifications.
+* Reduced minified Preact core size while retaining bounded lookup for reordered item lists.
+* Decreased bundle size across Preact's core, compatibility, hooks, and JSX runtime packages through targeted simplifications.
 
 ## Rendering and Diffing
 
-* Improved keyed item reordering to reduce rendering overhead when child lists change.
-* Enhanced hydration handling for excess markers to improve rendering correctness.
-* Simplified ref application during the rendering commit phase.
-* Refined guarded rendering checks to improve diffing correctness.
+* Improved reordering of keyed items to reduce work when child lists change.
+* Enhanced handling of extra markers when attaching to existing page content.
+* Simplified application of element references during rendering.
+* Refined rendering checks to improve how Preact compares and updates content.
 
 ## Compatibility and Correctness
 
-* Restored the `_bits` property mapping for Preact ISO builds.
-* Deferred passive effect cleanup during unmounts to align with the intended v11 timing.
-* Preserved constructor information when cloning virtual nodes in hardened JavaScript and frozen intrinsic environments.
-* Added compatibility validation for boxed React element symbols.
+* Restored the `_bits` internal property mapping used by Preact ISO builds.
+* Deferred cleanup for passive effects during unmounts to provide the intended v11 timing.
+* Preserved constructor information when cloning virtual nodes in hardened JavaScript environments.
+* Added compatibility validation for React elements represented by boxed symbols.
 
 ## Release Metadata
 
