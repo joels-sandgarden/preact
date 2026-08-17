@@ -8,3 +8,6 @@ The v11.0.0-rc.0 release candidate delivers smaller build artifacts and more rel
 * Trimmed additional bundle size from the release candidate's build artifacts.
 * Improved keyed list reordering to reduce the work required during diffing.
 * Corrected hydration handling for excess markers to improve server-rendered UI updates.
+* Refined commit and ref processing to make UI updates more reliable.
+* Deferred passive effect cleanup to the intended v11 timing.
+* Strengthened vnode cloning compatibility in hardened JavaScript environments.
