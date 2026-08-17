@@ -17,3 +17,10 @@ This release candidate reduces output size and improves rendering, hydration, co
 * Enhanced hydration handling for excess markers to improve rendering correctness.
 * Simplified ref application during the rendering commit phase.
 * Refined guarded rendering checks to improve diffing correctness.
+
+## Compatibility and Correctness
+
+* Restored the `_bits` property mapping for Preact ISO builds.
+* Deferred passive effect cleanup during unmounts to align with the intended v11 timing.
+* Preserved constructor information when cloning virtual nodes in hardened JavaScript and frozen intrinsic environments.
+* Added compatibility validation for boxed React element symbols.
