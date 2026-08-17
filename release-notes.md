@@ -3,7 +3,7 @@
 Date: 2026-08-12
 
 Version: `v11.0.0-rc.0`
-Reference: [Release change](https://github.com/joels-sandgarden/preact/pull/5)
+Source: [Release change](https://github.com/joels-sandgarden/preact/pull/5)
 
 This release candidate makes Preact smaller and improves how it updates page content, works with existing markup, handles integrations, and cleans up effects.
 
