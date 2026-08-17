@@ -24,3 +24,8 @@ This release candidate reduces output size and improves rendering, hydration, co
 * Deferred passive effect cleanup during unmounts to align with the intended v11 timing.
 * Preserved constructor information when cloning virtual nodes in hardened JavaScript and frozen intrinsic environments.
 * Added compatibility validation for boxed React element symbols.
+
+## Release Metadata
+
+* Updated package and developer tools version metadata to `11.0.0-rc.0`.
+* Confirmed no breaking changes for this release candidate.
