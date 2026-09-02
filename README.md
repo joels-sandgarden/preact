@@ -15,7 +15,10 @@
 - Familiar React API & patterns: ES6 Class, hooks, and Functional Components
 - Extensive React compatibility via a simple [preact/compat] alias
 - Everything you need: JSX, <abbr title="Virtual DOM">VDOM</abbr>, [DevTools], <abbr title="Hot Module Replacement">HMR</abbr>, <abbr title="Server-Side Rendering">SSR</abbr>.
-- Highly optimized diff algorithm and seamless hydration from Server Side Rendering
+- Smaller minified and compressed bundles keep the core lightweight
+- Highly optimized diffing with efficient keyed list reordering and seamless hydration from Server Side Rendering
+- Reliable VNode cloning in hardened JavaScript environments, including environments with frozen intrinsics
+- Improved React compatibility validation rejects boxed React element symbols
 - Supports all modern browsers
 - Transparent asynchronous rendering with a pluggable scheduler
 
@@ -52,7 +55,7 @@ You can find some awesome libraries in the [awesome-preact list](https://github.
 
 With Preact, you create user interfaces by assembling trees of components and elements. Components are functions or classes that return a description of what their tree should output. These descriptions are typically written in [JSX](https://react.dev/learn/writing-markup-with-jsx) (shown underneath), or [HTM](https://github.com/developit/htm) which leverages standard JavaScript Tagged Templates. Both syntaxes can express trees of elements with "props" (similar to HTML attributes) and children.
 
-To get started using Preact, first look at the render() function. This function accepts a tree description and creates the structure described. Next, it appends this structure to a parent DOM element provided as the second argument. Future calls to render() will reuse the existing tree and update it in-place in the DOM. Internally, render() will calculate the difference from previous outputted structures in an attempt to perform as few DOM operations as possible.
+To get started using Preact, first look at the render() function. This function accepts a tree description and creates the structure described. Next, it appends this structure to a parent DOM element provided as the second argument. Future calls to render() will reuse the existing tree and update it in-place in the DOM. Internally, render() will calculate the difference from previous outputted structures in an attempt to perform as few DOM operations as possible. The renderer reduces overhead when keyed lists reorder while retaining optimized bounded lookup behavior. It also improves diffing and server rendered hydration correctness, including excess marker handling.
 
 ```js
 import { h, render } from 'preact';
@@ -100,6 +103,8 @@ const App = () => {
 
 render(<App />, document.body);
 ```
+
+In v11, Preact defers passive effect cleanup when a component unmounts.
 
 ---
 
