@@ -2,13 +2,13 @@
 
 ### Bug Fixes
 
-* Reduce the compressed core size and preserve bounded lookup behavior for keyed reorders.
-* Improve hydration and diffing correctness, including handling for excess hydration markers and reference application.
-* Reduce overhead during keyed reorders by simplifying insertion and unmount processing.
-* Correct internal property mapping for Preact ISO builds.
+* Reduce compressed core size and lower processing overhead when keyed items change order while keeping lookup work bounded.
+* Improve rendering correctness when server rendered output contains excess markers and when references update.
+* Correct internal property mapping in Preact ISO builds.
 * Defer passive effect cleanup during unmount to provide the intended v11 timing.
-* Preserve vnode constructors during cloning for hardened JavaScript environments.
-* Reject boxed React element symbols for more reliable compatibility behavior.
-* Update package metadata and the devtools attachment to `11.0.0-rc.0`.
+* Preserve component type information when cloning rendered elements in hardened JavaScript environments.
+* Reject invalid boxed React element identifiers for improved compatibility.
+* Reduce expression size in compatibility and JSX runtime packages.
+* Update package metadata and the developer tools integration to `11.0.0-rc.0`.
 
 This release introduces no breaking changes.
