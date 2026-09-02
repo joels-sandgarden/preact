@@ -2,14 +2,14 @@
 
 ### Enhancements
 
-* Reduced core compressed size without changing list lookup limits.
-* Streamlined generated output with shorter expressions and compact naming.
-* Improved keyed content reordering while retaining its bounded lookup path.
-* Restored compact naming for the ISO build.
+* Reduced core compressed size while preserving bounded list lookup.
+* Shortened expressions to streamline generated output.
+* Improved keyed content reordering while retaining bounded lookup.
+* Restored compact naming in ISO builds.
 
 ### Bug Fixes
 
-* Corrected server rendered content hydration and reference handling during root updates.
-* Deferred passive effect cleanup until unmount completes.
+* Corrected server-rendered content hydration and reference handling during root updates.
+* Deferred passive effect cleanup until unmount completed.
 * Preserved constructors when cloning elements in hardened environments.
 * Improved compatibility with boxed React element symbols.
