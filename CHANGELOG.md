@@ -5,3 +5,5 @@
 * Improved hydration and diffing correctness.
 * Restored the `_bits` property mapping in Preact ISO.
 * Deferred passive effect cleanup until unmount.
+* Preserved constructors when cloning VNodes in hardened JavaScript environments.
+* Strengthened compat element validation for boxed React symbols.
