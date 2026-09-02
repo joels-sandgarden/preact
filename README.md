@@ -15,8 +15,8 @@
 - Familiar React API & patterns: ES6 Class, hooks, and Functional Components
 - Extensive React compatibility via a simple [preact/compat] alias
 - Everything you need: JSX, <abbr title="Virtual DOM">VDOM</abbr>, [DevTools], <abbr title="Hot Module Replacement">HMR</abbr>, <abbr title="Server-Side Rendering">SSR</abbr>.
-- Highly optimized diff algorithm with efficient updates for keyed lists, seamless hydration from Server Side Rendering, and more reliable rendering
-- Minification and compression make production builds smaller, helping bundlers deliver lighter applications.
+- Highly optimized diff algorithm with efficient updates for keyed lists, seamless and more reliable hydration from Server Side Rendering, and more reliable rendering
+- Minification and compression produce smaller production builds, helping bundlers deliver lighter applications.
 - Supports all modern browsers
 - Transparent asynchronous rendering with a pluggable scheduler
 
