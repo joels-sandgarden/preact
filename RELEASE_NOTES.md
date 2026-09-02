@@ -2,7 +2,7 @@
 
 ### Enhancements
 
-* Reduced core compressed size while preserving bounded LIS lookup.
+* Reduced core compressed size and preserved bounded LIS lookup.
 * Made generated output smaller by shortening its expressions.
 * Improved content reordering when item keys change for more consistent updates.
 * Restored compact naming in ISO builds.
