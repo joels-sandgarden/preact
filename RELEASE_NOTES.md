@@ -9,5 +9,5 @@
 * Restored expected internal property mapping in Preact ISO builds.
 * Trimmed generated output in compatibility packages and the JSX runtime.
 * Corrected passive effect cleanup timing to match v11 behavior when components unmount.
-* Improved cloning in restricted JavaScript environments by preserving constructor information.
+* Hardened cloning in restricted JavaScript environments by preserving constructor information.
 * Clarified compatibility behavior for boxed React element symbols.
