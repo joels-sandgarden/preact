@@ -4,6 +4,6 @@
 * Optimized keyed reorder diffing while retaining a bounded longest increasing subsequence lookup.
 * Improved correctness during hydration and diffing.
 * Restored Preact ISO's `_bits` property mapping.
-* Deferred passive effect cleanup until unmount.
-* Preserved constructors when cloning VNodes in hardened JavaScript environments.
-* Strengthened compat element validation for boxed React symbols.
+* Passive effect cleanup is deferred until unmount.
+* VNode clones preserve constructors in hardened JavaScript environments.
+* Compat validates elements with boxed React symbols more strictly.
