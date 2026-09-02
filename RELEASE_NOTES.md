@@ -2,7 +2,7 @@
 
 ### Enhancements
 
-* Reduced core compressed size while preserving predictable list matching.
+* Reduced core compressed size while preserving bounded LIS lookup.
 * Made generated output smaller by shortening its expressions.
 * Improved content reordering when item keys change for more consistent updates.
 * Restored compact naming in ISO builds.
