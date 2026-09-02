@@ -18,7 +18,7 @@
 - Smaller minified and compressed bundles reduce download payloads
 - Highly optimized diffing and seamless hydration from Server Side Rendering
 - Preact reliably clones VNodes in hardened JavaScript environments with frozen intrinsics
-- Improved React compatibility validation rejects boxed React element symbols
+- React compatibility now rejects boxed React element symbols instead of treating them as valid elements
 - Supports all modern browsers
 - Transparent asynchronous rendering with a pluggable scheduler
 
@@ -55,7 +55,7 @@ You can find some awesome libraries in the [awesome-preact list](https://github.
 
 With Preact, you create user interfaces by assembling trees of components and elements. Components are functions or classes that return a description of what their tree should output. These descriptions are typically written in [JSX](https://react.dev/learn/writing-markup-with-jsx) (shown underneath), or [HTM](https://github.com/developit/htm) which leverages standard JavaScript Tagged Templates. Both syntaxes can express trees of elements with "props" (similar to HTML attributes) and children.
 
-To get started using Preact, first look at the render() function. This function accepts a tree description and creates the structure described. Next, it appends this structure to a parent DOM element provided as the second argument. Future calls to render() will reuse the existing tree and update it in-place in the DOM. Internally, render() will calculate the difference from previous outputted structures in an attempt to perform as few DOM operations as possible. The renderer reduces overhead when keyed lists reorder while retaining optimized bounded lookup behavior. It also improves diffing and server rendered hydration correctness, including excess marker handling.
+To get started using Preact, first look at the render() function. This function accepts a tree description and creates the structure described. Next, it appends this structure to a parent DOM element provided as the second argument. Future calls to render() will reuse the existing tree and update it in-place in the DOM. Internally, render() will calculate the difference from previous outputted structures in an attempt to perform as few DOM operations as possible. The renderer reduces overhead for keyed list reordering while retaining optimized bounded lookups. The renderer also improves diffing and server rendered hydration correctness, including excess marker handling.
 
 ```js
 import { h, render } from 'preact';
